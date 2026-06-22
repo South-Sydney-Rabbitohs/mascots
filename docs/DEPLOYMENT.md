@@ -20,8 +20,9 @@ Result: no one can push straight to `main`; every change goes through a PR + gre
 ## 2. Access (GitHub org)
 
 - Contributors → **Write** access to this repo only.
-- Reviewer / maintainer → **Maintain** or **Admin** (can merge, manage settings).
-- Keep the Cloudflare account owner list short.
+- Reviewer → Sunny Brar (sbrar@rabbitohs.com.au): **Maintain** (can review, approve, merge).
+- Owner / admin → Ben Clink (bclink@rabbitohs.com.au): **Admin** + Cloudflare account owner (manages
+  access, settings, hosting, rollbacks). Keep the admin/owner list short.
 
 ## 3. Hosting — Cloudflare Pages
 
