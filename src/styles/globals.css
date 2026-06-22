@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colours */
+  --color-brand-red: #C8102E;
+  --color-brand-green: #007A3D;
+  --color-brand-dark-green: #0D4F2A;
+  --color-brand-yellow: #FFD54F;
+  --color-brand-sky: #BFE9F7;
+  --color-brand-grass: #BFD76E;
+  --color-brand-purple: #51319C;
+  --color-brand-blue: #1788DF;
+  --color-brand-cream: #FFF7D7;
+  --color-brand-text: #1A1A1A;
+
+  /* Font families */
+  --font-heading: 'Baloo 2', cursive;
+  --font-body: 'Nunito', sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-brand-text);
+    background-color: #BFE9F7;
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+  }
+
+  /* Accessible focus ring for all interactive elements */
+  :focus-visible {
+    outline: 3px solid var(--color-brand-green);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

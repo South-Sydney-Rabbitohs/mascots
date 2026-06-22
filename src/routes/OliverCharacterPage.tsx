@@ -1,0 +1,62 @@
+import { characters } from '@/data/characters'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+import SkipLink from '@/components/shared/SkipLink'
+import ParkHero from '@/components/character/ParkHero'
+import CharacterBio from '@/components/character/CharacterBio'
+import ClipboardFacts from '@/components/character/ClipboardFacts'
+import BestMomentsSection from '@/components/character/BestMomentsSection'
+import CharacterActivities from '@/components/character/CharacterActivities'
+import CharacterFamily from '@/components/character/CharacterFamily'
+
+const oliver = characters.find((c) => c.id === 'oliver')!
+
+const oliverFacts = [
+  { label: 'Full name', value: 'Oliver Rabbit' },
+  { label: 'Age', value: '36 years old' },
+  { label: 'Appearance', value: 'Six foot tall, cuddly brown fur, bucket hat' },
+  { label: 'Lives', value: 'With the Burrow Bunnies' },
+  { label: 'Occupation', value: 'Builder, boardgame champion & family man' },
+  { label: 'Special skill', value: 'If it can be built, Oliver is your rabbit!' },
+  { label: 'Hero', value: 'Scarlett and the whole Rabbit family' },
+  { label: 'Dream', value: 'A perfect veggie garden and a Rabbitohs premiership' },
+  { label: 'Fun fact', value: "Always says the right thing at the right time — even when he doesn't understand the game!" },
+  { label: 'Related characters', value: 'Scarlett, Ruby, Jack and Reggie Rabbit' },
+]
+
+export default function OliverCharacterPage() {
+  return (
+    <>
+      <SkipLink />
+      <Header />
+      <main id="main-content">
+        {/* Park hero scene */}
+        <ParkHero
+          characterName={oliver.firstName}
+          characterSurname={oliver.lastName}
+          catchphrase="Hey there guys, I'm Oliver."
+          tagline="New to the Rabbitohs family — but heart and soul in the Burrow!"
+          imageSrc={oliver.heroImage}
+          imageAlt="Oliver Rabbit standing on the park grass wearing his signature bucket hat"
+          accentColor={oliver.accentColor}
+        />
+
+        {/* Bio */}
+        <CharacterBio character={oliver} />
+
+        {/* Clipboard Quick Facts */}
+        <ClipboardFacts facts={oliverFacts} characterName={oliver.firstName} />
+
+        {/* Best Moments */}
+        <BestMomentsSection moments={oliver.bestMoments} characterName={oliver.firstName} />
+
+        {/* Activities */}
+        <CharacterActivities characterId={oliver.id} characterName={oliver.firstName} />
+
+        {/* Family */}
+        <CharacterFamily relatedCharacterIds={oliver.relatedCharacters} currentCharacterName={oliver.firstName} />
+      </main>
+      <Footer />
+    </>
+  )
+}

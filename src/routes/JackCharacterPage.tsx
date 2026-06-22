@@ -1,0 +1,61 @@
+import { characters } from '@/data/characters'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+import SkipLink from '@/components/shared/SkipLink'
+import ParkHero from '@/components/character/ParkHero'
+import CharacterBio from '@/components/character/CharacterBio'
+import ClipboardFacts from '@/components/character/ClipboardFacts'
+import BestMomentsSection from '@/components/character/BestMomentsSection'
+import CharacterActivities from '@/components/character/CharacterActivities'
+import CharacterFamily from '@/components/character/CharacterFamily'
+
+const jack = characters.find((c) => c.id === 'jack')!
+
+const jackFacts = [
+  { label: 'Full name', value: 'Jack Rabbit' },
+  { label: 'Age', value: 'Six years old' },
+  { label: 'Appearance', value: 'Dark and light brown fur, sporty sneakers, backwards cap' },
+  { label: 'Lives', value: 'With the Burrow Bunnies' },
+  { label: 'Occupation', value: 'Adventure expert in training' },
+  { label: 'Hero', value: 'Grandad Reggie' },
+  { label: 'Dream', value: 'To be a player, coach and mascot — all at once!' },
+  { label: 'Fun fact', value: 'Knows "Glory Glory to South Sydney" backwards!' },
+  { label: 'Related characters', value: 'Ruby, Scarlett, Reggie and Oliver Rabbit' },
+]
+
+export default function JackCharacterPage() {
+  return (
+    <>
+      <SkipLink />
+      <Header />
+      <main id="main-content">
+        {/* Park hero scene */}
+        <ParkHero
+          characterName={jack.firstName}
+          characterSurname={jack.lastName}
+          catchphrase="HEY HEY! I'm Jack!"
+          tagline="Fastest bunny in the Burrow — cap backwards, aerodynamic. It's science!"
+          imageSrc={jack.heroImage}
+          imageAlt="Jack Rabbit standing confidently on the park grass wearing his backwards cap"
+          accentColor={jack.accentColor}
+        />
+
+        {/* Bio */}
+        <CharacterBio character={jack} />
+
+        {/* Clipboard Quick Facts */}
+        <ClipboardFacts facts={jackFacts} characterName={jack.firstName} />
+
+        {/* Best Moments */}
+        <BestMomentsSection moments={jack.bestMoments} characterName={jack.firstName} />
+
+        {/* Activities */}
+        <CharacterActivities characterId={jack.id} characterName={jack.firstName} />
+
+        {/* Family */}
+        <CharacterFamily relatedCharacterIds={jack.relatedCharacters} currentCharacterName={jack.firstName} />
+      </main>
+      <Footer />
+    </>
+  )
+}
