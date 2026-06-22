@@ -151,7 +151,10 @@ export default function ActivitiesSection() {
   const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX }
   const onTouchEnd = (e: React.TouchEvent) => {
     const diff = touchStartX.current - e.changedTouches[0].clientX
-    if (Math.abs(diff) > 48) diff > 0 ? next() : prev()
+    if (Math.abs(diff) > 48) {
+      if (diff > 0) next()
+      else prev()
+    }
   }
 
   const cardWidthStyle = `calc((100% - ${GAP * (visibleCount - 1)}px) / ${visibleCount})`
