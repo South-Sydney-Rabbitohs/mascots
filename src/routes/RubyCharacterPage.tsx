@@ -36,9 +36,10 @@ export default function RubyCharacterPage() {
           characterSurname={ruby.lastName}
           catchphrase="Hello! I'm Ruby."
           tagline="The big sister with quiet confidence, a great pass and a heart full of Red & Green!"
-          imageSrc={ruby.heroImage}
-          imageAlt="Ruby Rabbit standing on the park grass wearing her pink glasses"
+          imageSrc="/characters/ruby-header.png"
+          imageAlt="Ruby Rabbit standing confidently wearing her pink glasses and holding a football"
           accentColor={ruby.accentColor}
+          bannerColor="#E56381"
         />
 
         {/* Bio */}

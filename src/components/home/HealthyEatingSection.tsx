@@ -56,7 +56,6 @@ export default function HealthyEatingSection() {
               className="group bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-shadow duration-200 flex flex-col focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#007A3D]"
               aria-label={`View recipe: ${recipe.title}`}
             >
-              <div className="text-4xl mb-3" role="img" aria-hidden="true">{recipe.emoji}</div>
               <h3
                 className="font-['Baloo_2',cursive] font-bold text-xl mb-2"
                 style={{ color: recipe.accentColor }}

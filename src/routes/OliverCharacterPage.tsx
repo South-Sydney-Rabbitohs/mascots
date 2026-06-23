@@ -36,9 +36,10 @@ export default function OliverCharacterPage() {
           characterSurname={oliver.lastName}
           catchphrase="Hey there guys, I'm Oliver."
           tagline="New to the Rabbitohs family — but heart and soul in the Burrow!"
-          imageSrc={oliver.heroImage}
-          imageAlt="Oliver Rabbit standing on the park grass wearing his signature bucket hat"
+          imageSrc="/characters/oliver-header.png"
+          imageAlt="Oliver Rabbit standing warmly in his South Sydney Rabbitohs kit"
           accentColor={oliver.accentColor}
+          bannerColor="#372B29"
         />
 
         {/* Bio */}

@@ -52,7 +52,7 @@ export default function ClipboardFacts({ facts, characterName }: ClipboardFactsP
                 id="clipboard-heading"
                 className="font-['Baloo_2',cursive] font-extrabold text-xl text-[#C8102E] mb-4 text-center"
               >
-                ⭐ {characterName} Quick Facts ⭐
+                {characterName} Quick Facts
               </h2>
               <dl className="space-y-3">
                 {facts.map((fact) => (

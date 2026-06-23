@@ -36,9 +36,10 @@ export default function ScarlettCharacterPage() {
           characterSurname={scarlett.lastName}
           catchphrase="Hi, I'm Scarlett — but you can call me Scar."
           tagline="Fastest in the family, loudest in the stand — Reggie's daughter through and through!"
-          imageSrc={scarlett.heroImage}
-          imageAlt="Scarlett Rabbit on the park grass in her snazzy shoes and bouncy beanie"
+          imageSrc="/characters/scarlett-header.png"
+          imageAlt="Scarlett Rabbit standing proudly in her South Sydney Rabbitohs kit"
           accentColor={scarlett.accentColor}
+          bannerColor="#FA623E"
         />
 
         {/* Bio */}

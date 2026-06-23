@@ -35,9 +35,10 @@ export default function JackCharacterPage() {
           characterSurname={jack.lastName}
           catchphrase="HEY HEY! I'm Jack!"
           tagline="Fastest bunny in the Burrow — cap backwards, aerodynamic. It's science!"
-          imageSrc={jack.heroImage}
-          imageAlt="Jack Rabbit standing confidently on the park grass wearing his backwards cap"
+          imageSrc="/characters/jack-header.png"
+          imageAlt="Jack Rabbit standing confidently with his backwards cap"
           accentColor={jack.accentColor}
+          bannerColor="#046F6A"
         />
 
         {/* Bio */}

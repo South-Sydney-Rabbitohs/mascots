@@ -38,7 +38,6 @@ export default function ParentsZoneSection() {
     >
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
-          <div className="text-5xl mb-3" role="img" aria-label="Family">👨‍👩‍👧‍👦</div>
           <h2
             id="parents-heading"
             className="font-['Baloo_2',cursive] font-extrabold text-4xl md:text-5xl text-white mb-3"
@@ -61,7 +60,6 @@ export default function ParentsZoneSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {resources.map((resource) => (
             <div key={resource.title} className="bg-white/10 rounded-3xl p-6 border border-white/20 flex flex-col">
-              <div className="text-3xl mb-3" role="img" aria-hidden="true">{resource.emoji}</div>
               <h3 className="font-['Baloo_2',cursive] font-bold text-[#FFD54F] text-xl mb-2">
                 {resource.title}
               </h3>

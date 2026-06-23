@@ -1,96 +1,48 @@
-import Button from '@/components/shared/Button'
-
-// TODO: GA4 hero_cta_click event
+import { useEffect } from 'react'
 
 export default function HeroSection() {
+  useEffect(() => {
+    const prev = document.body.style.backgroundColor
+    document.body.style.backgroundColor = '#E3FCE2'
+    return () => { document.body.style.backgroundColor = prev }
+  }, [])
+
   return (
     <section
-      aria-labelledby="hero-heading"
-      className="relative bg-[#BFE9F7] overflow-hidden"
+      aria-label="Meet the Rabbit Family"
+      className="relative overflow-hidden"
+      style={{ backgroundColor: '#E3FCE2', minHeight: 520 }}
     >
-      {/* Sky gradient */}
+      {/* ── Field background image — bottom 50% of section ── */}
       <div
-        className="absolute inset-0"
-        style={{ background: 'linear-gradient(180deg, #BFE9F7 0%, #FFF7D7 100%)' }}
+        className="absolute bottom-0 left-0 right-0"
+        style={{
+          height: '50%',
+          backgroundImage: 'url(/hero-field-bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+        }}
         aria-hidden="true"
       />
 
-      {/* Grass strip */}
+      {/* ── Fade overlay: #E3FCE2 at top → transparent ── */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-20"
-        style={{ backgroundColor: '#BFD76E', borderRadius: '60% 60% 0 0 / 30px 30px 0 0' }}
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'linear-gradient(180deg, #E3FCE2 0%, #E3FCE2 12%, rgba(227,252,226,0.7) 35%, transparent 62%)',
+        }}
         aria-hidden="true"
       />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 pt-16 pb-28 text-center">
-        {/* Super label */}
-        <div className="inline-block bg-[#C8102E] text-white font-['Baloo_2',cursive] font-bold text-sm px-4 py-1 rounded-full mb-4">
-          South Sydney Rabbitohs
-        </div>
-
-        <h1 id="hero-heading" className="mb-4">
-          <img
-            src="/burrow-bunnies-logo.svg"
-            alt="Burrow Bunnies"
-            className="mx-auto w-full max-w-[280px] md:max-w-sm lg:max-w-md drop-shadow-lg"
-          />
-        </h1>
-
-        <p className="font-['Nunito',sans-serif] text-lg md:text-xl text-[#1A1A1A]/70 max-w-xl mx-auto mb-8">
-          Fun, games and footy with South Sydney's favourite bunnies!
-          Meet the characters, do the activities and join the crew.
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-12">
-          <Button
-            as="a"
-            href="/#characters"
-            variant="secondary"
-            size="lg"
-            aria-label="Meet all the Burrow Bunnies characters"
-          >
-            🐰 Meet the Gang
-          </Button>
-          <Button
-            as="a"
-            href="/#activities"
-            variant="primary"
-            size="lg"
-            aria-label="Explore all activities"
-          >
-            🎯 Get Activities
-          </Button>
-        </div>
-
-        {/* Character lineup artwork — TODO: supply final PNG at public/hero-lineup.png */}
-        {/* Drop the file in and this placeholder disappears automatically */}
+      {/* ── Family PNG ── */}
+      <div className="relative z-10 flex justify-center items-end" style={{ minHeight: 520 }}>
         <img
-          src="/hero-lineup.png"
-          alt="The Burrow Bunnies — Jack, Oliver, Reggie, Ruby and Scarlett lined up together"
-          className="mx-auto w-full max-w-2xl"
-          width={640}
-          height={220}
-          onError={(e) => {
-            e.currentTarget.style.display = 'none'
-            const fallback = e.currentTarget.nextElementSibling as HTMLElement | null
-            if (fallback) fallback.removeAttribute('hidden')
-          }}
+          src="/meet-the-family.png"
+          alt="Meet the Rabbit Family — Reggie, Scarlett, Jack, Ruby and Oliver standing together"
+          className="w-full"
+          style={{ maxWidth: 860 }}
         />
-        {/* Fallback shown until real PNG is supplied */}
-        <div
-          hidden
-          className="mx-auto flex flex-col items-center justify-center rounded-2xl"
-          style={{ maxWidth: 640, height: 220, background: 'rgba(0,0,0,0.06)', border: '2px dashed rgba(0,0,0,0.15)' }}
-          role="img"
-          aria-label="Hero lineup artwork — The Burrow Bunnies"
-        >
-          <span className="text-4xl mb-2">🐰</span>
-          <p className="font-['Baloo_2',cursive] text-[#1A1A1A]/40 text-sm">
-            Hero lineup artwork (supply <code>public/hero-lineup.png</code>)
-          </p>
-        </div>
       </div>
     </section>
   )

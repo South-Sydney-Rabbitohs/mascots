@@ -35,9 +35,10 @@ export default function ReggieCharacterPage() {
           characterSurname={reggie.lastName}
           catchphrase="G'day, I'm Reggie Rabbit."
           tagline="The original Burrow Bunny. Head Cheerleader, Chief Hugger & Grandfather-in-Chief of the Rabbitohs!"
-          imageSrc={reggie.heroImage}
-          imageAlt="Reggie Rabbit standing proudly in his South Sydney Rabbitohs scarf"
+          imageSrc="/characters/reggie-header.png"
+          imageAlt="Reggie Rabbit standing proudly in his South Sydney Rabbitohs kit"
           accentColor={reggie.accentColor}
+          bannerColor="#047442"
         />
 
         {/* Bio */}

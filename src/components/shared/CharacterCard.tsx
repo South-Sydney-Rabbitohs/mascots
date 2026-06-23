@@ -1,15 +1,15 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import type { Character } from '@/data/characters'
-import CharacterPlaceholder from './CharacterPlaceholder'
 
 interface CharacterCardProps {
   character: Character
   variant?: 'home' | 'family'
   index?: number
+  compact?: boolean
 }
 
-export default function CharacterCard({ character, variant = 'home', index = 0 }: CharacterCardProps) {
+export default function CharacterCard({ character, variant = 'home', index = 0, compact = false }: CharacterCardProps) {
   const shouldReduceMotion = useReducedMotion()
 
   const cardVariants = {
@@ -17,60 +17,114 @@ export default function CharacterCard({ character, variant = 'home', index = 0 }
     visible: { opacity: 1, y: 0, transition: { duration: 0.4, delay: index * 0.08 } },
   }
 
-  const cardContent = (
-    <div
-      className={`relative rounded-3xl overflow-hidden bg-white shadow-md group
-        ${variant === 'home' ? 'hover:shadow-xl hover:-translate-y-1 transition-all duration-200' : ''}
-        ${!character.available ? 'opacity-90' : ''}
-      `}
-    >
-      {/* Image area */}
-      <div
-        className={`relative ${variant === 'home' ? 'h-52' : 'h-40'} w-full overflow-hidden`}
-        style={{ backgroundColor: character.accentColor + '22' }}
-      >
-        {character.cardImage ? (
-          <img
-            src={character.cardImage}
-            alt={`${character.firstName} ${character.lastName}`}
-            className="w-full h-full object-contain p-4"
-          />
-        ) : (
-          <CharacterPlaceholder
-            name={character.firstName}
-            className="w-full h-full"
-            accentColor={character.accentColor}
-          />
-        )}
+  // Home variant — character bust overflows above coloured card
+  if (variant === 'home') {
+    const inner = (
+      <div className="relative" style={{ paddingTop: compact ? 50 : 90 }}>
+        {/* Character image — overflows above card */}
+        <div className="absolute top-0 left-0 right-0 flex justify-center z-10 pointer-events-none px-3">
+          {character.cardImage ? (
+            <img
+              src={character.cardImage}
+              alt={character.firstName}
+              className={`${compact ? 'w-1/2' : 'w-full'} h-auto`}
+              style={{ filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.3))' }}
+            />
+          ) : (
+            <div
+              className={`${compact ? 'w-1/2' : 'w-full'} rounded-2xl flex items-center justify-center`}
+              style={{ aspectRatio: '192/231', backgroundColor: character.accentColor + '33', border: `2px dashed ${character.accentColor}66` }}
+            >
+              <span className="font-['Baloo_2',cursive] text-xs text-center px-2 opacity-50">{character.firstName}</span>
+            </div>
+          )}
+        </div>
 
-        {/* Coming soon badge */}
+        {/* Coloured card body */}
+        <div
+          className="rounded-3xl px-4 pb-5"
+          style={{ backgroundColor: character.accentColor, paddingTop: compact ? 105 : 130 }}
+        >
+          {!compact && (
+            <h3 className="font-['Baloo_2',cursive] font-extrabold text-white text-xl leading-tight mb-1">
+              {character.firstName} {character.lastName}
+            </h3>
+          )}
+          <p className="font-['Nunito',sans-serif] text-white/80 text-xs leading-relaxed mb-3 line-clamp-2">
+            {character.tagline}
+          </p>
+          {character.available ? (
+            <span className="font-['Baloo_2',cursive] font-bold text-white text-xs uppercase tracking-wider">
+              Meet {character.firstName} →
+            </span>
+          ) : (
+            <span className="font-['Baloo_2',cursive] font-bold text-white/60 text-xs uppercase tracking-wider">
+              Coming Soon
+            </span>
+          )}
+        </div>
+
+        {/* Coming soon overlay */}
         {!character.available && (
-          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+          <div className="absolute inset-0 top-[90px] rounded-3xl bg-black/20 flex items-center justify-center">
             <span className="bg-[#FFD54F] text-[#C8102E] font-['Baloo_2',cursive] font-bold text-sm px-3 py-1 rounded-full">
               Coming Soon!
             </span>
           </div>
         )}
       </div>
+    )
 
-      {/* Text */}
+    return (
+      <motion.div
+        variants={cardVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
+        {character.available ? (
+          <Link
+            to={`/characters/${character.slug}`}
+            className="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#007A3D] rounded-3xl transition-transform duration-200 hover:scale-[1.04]"
+            aria-label={`Meet ${character.firstName} ${character.lastName}`}
+          >
+            {inner}
+          </Link>
+        ) : (
+          <div aria-label={`${character.firstName} ${character.lastName} — coming soon`}>{inner}</div>
+        )}
+      </motion.div>
+    )
+  }
+
+  // Family variant — compact horizontal / grid card (unchanged style)
+  const cardContent = (
+    <div className="relative rounded-3xl overflow-hidden bg-white shadow-md group hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
+      <div
+        className="relative h-40 w-full overflow-hidden flex items-center justify-center"
+        style={{ backgroundColor: character.accentColor + '22' }}
+      >
+        {character.cardImage ? (
+          <img src={character.cardImage} alt={character.firstName} className="h-full w-auto object-contain" />
+        ) : (
+          <div
+            className="w-full h-full flex items-center justify-center"
+            style={{ backgroundColor: character.accentColor }}
+          >
+            <span className="font-['Baloo_2',cursive] font-bold text-white text-2xl">{character.firstName[0]}</span>
+          </div>
+        )}
+      </div>
       <div className="p-4">
-        <div className="text-2xl mb-1">{character.emoji}</div>
         <h3 className="font-['Baloo_2',cursive] font-bold text-[#51319C] text-lg leading-tight">
           {character.firstName} {character.lastName}
         </h3>
         <p className="text-sm text-[#1A1A1A]/70 font-['Nunito',sans-serif] mt-1 line-clamp-2">
           {character.tagline}
         </p>
-
-        {character.available && variant === 'family' && (
+        {character.available && (
           <p className="mt-2 text-xs font-bold text-[#1788DF] font-['Baloo_2',cursive] uppercase tracking-wide">
             Learn More →
-          </p>
-        )}
-        {character.available && variant === 'home' && (
-          <p className="mt-2 text-xs font-bold text-[#1788DF] font-['Baloo_2',cursive] uppercase tracking-wide">
-            Meet {character.firstName} →
           </p>
         )}
       </div>
@@ -93,9 +147,7 @@ export default function CharacterCard({ character, variant = 'home', index = 0 }
           {cardContent}
         </Link>
       ) : (
-        <div aria-label={`${character.firstName} ${character.lastName} — coming soon`}>
-          {cardContent}
-        </div>
+        <div aria-label={`${character.firstName} ${character.lastName} — coming soon`}>{cardContent}</div>
       )}
     </motion.div>
   )

@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { clsx } from 'clsx'
+import RabbitIcon from '@/components/shared/RabbitIcon'
 
 const navLinks = [
   { label: 'Characters', href: '/#characters' },
   { label: 'Activities', href: '/#activities' },
-  { label: 'Colour In', href: '/#colouring' },
+  { label: 'Colour In', href: '/colouring' },
   { label: 'Healthy Living', href: '/#healthy-living' },
 ]
 
@@ -38,19 +39,15 @@ export default function Header() {
             aria-label="Burrow Bunnies — Home"
             onClick={() => setMenuOpen(false)}
           >
-            <img
-              src="/burrow-bunnies-logo.svg"
-              alt="Burrow Bunnies"
-              className="h-24 w-auto drop-shadow-md"
-            />
+            <RabbitIcon className="h-16 w-auto" />
           </Link>
 
           {/* Desktop nav */}
           <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.href}
                 className={clsx(
                   'font-["Baloo_2",cursive] font-semibold text-sm text-[#1A1A1A] px-3 py-2 rounded-lg',
                   'hover:bg-black/10 transition-colors duration-150 min-h-[44px] flex items-center',
@@ -58,7 +55,7 @@ export default function Header() {
                 )}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -103,14 +100,14 @@ export default function Header() {
               style={{ width: '70%' }}
             >
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setMenuOpen(false)}
                   className="block font-['Baloo_2',cursive] font-semibold text-[#1A1A1A] py-3 border-b border-black/10 hover:text-[#C8102E] transition-colors min-h-[44px] flex items-center"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </motion.nav>

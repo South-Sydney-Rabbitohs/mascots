@@ -6,6 +6,7 @@ import JackCharacterPage from '@/routes/JackCharacterPage'
 import RubyCharacterPage from '@/routes/RubyCharacterPage'
 import ScarlettCharacterPage from '@/routes/ScarlettCharacterPage'
 import OliverCharacterPage from '@/routes/OliverCharacterPage'
+import ColourInPage from '@/routes/ColourInPage'
 import AnytimeMuffinsPage from '@/routes/recipes/AnytimeMuffinsPage'
 import ChocSnackBallsPage from '@/routes/recipes/ChocSnackBallsPage'
 import NoBakeOatBarsPage from '@/routes/recipes/NoBakeOatBarsPage'
@@ -21,6 +22,7 @@ export default function App() {
       <Route path="/characters/ruby" element={<RubyCharacterPage />} />
       <Route path="/characters/scarlett" element={<ScarlettCharacterPage />} />
       <Route path="/characters/oliver" element={<OliverCharacterPage />} />
+      <Route path="/colouring" element={<ColourInPage />} />
       {/* Healthy Living recipes */}
       <Route path="/healthy-living/anytime-muffins" element={<AnytimeMuffinsPage />} />
       <Route path="/healthy-living/choc-snack-balls" element={<ChocSnackBallsPage />} />

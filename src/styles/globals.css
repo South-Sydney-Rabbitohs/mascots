@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Funtastic';
+  src: url('/fonts/Funtastic-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   /* Brand colours */
   --color-brand-red: #C8102E;
@@ -61,4 +69,16 @@
     max-width: 100%;
     height: auto;
   }
+}
+
+/* Unlayered — beats all Tailwind utility classes in cascade order */
+h1, h2 {
+  font-family: 'Funtastic', 'Baloo 2', cursive;
+}
+
+/* Offset sticky header (50px spacer + 64px nav pill + 8px breathing room) */
+#characters,
+#activities,
+#healthy-living {
+  scroll-margin-top: 122px;
 }
