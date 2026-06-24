@@ -236,7 +236,7 @@ export const activities: Activity[] = [
     description: 'Five characters, five colouring sheets — plus bonus scenes! Pick your favourite or do them all.',
     category: 'colouring',
     image: '',
-    altText: 'Colouring sheets of the Burrow Bunnies characters',
+    altText: 'Colouring sheets of the Mascot Family characters',
     emoji: '🖍️',
     ctaLabel: 'Start Colouring',
     ctaAction: 'link',

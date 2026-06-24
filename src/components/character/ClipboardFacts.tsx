@@ -89,7 +89,7 @@ export default function ClipboardFacts({
             Get to know {characterName}!
           </p>
           <p className="font-['Nunito',sans-serif] text-base md:text-lg max-w-sm" style={{ color: bodyColor }}>
-            Every great Burrow Bunnies member has a fact sheet. Here are {characterName}'s most important facts — straight from the clipboard!
+            Every great Mascot Family member has a fact sheet. Here are {characterName}'s most important facts — straight from the clipboard!
           </p>
         </div>
       </div>

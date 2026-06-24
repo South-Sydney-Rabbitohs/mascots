@@ -15,7 +15,7 @@ const scarlettFacts = [
   { label: 'Full name', value: 'Scarlett Rabbit' },
   { label: 'Life stage', value: 'Mum' },
   { label: 'Appearance', value: 'Five foot nine, white and brown fur, snazzy shoes, bouncy beanie' },
-  { label: 'Lives', value: 'With the Burrow Bunnies' },
+  { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: "Rugby League coach & Reggie's daughter" },
   { label: 'Special skill', value: 'Fastest in the family' },
   { label: 'Hero', value: 'Reggie Rabbit (her dad)' },

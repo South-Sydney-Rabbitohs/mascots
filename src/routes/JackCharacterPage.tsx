@@ -15,7 +15,7 @@ const jackFacts = [
   { label: 'Full name', value: 'Jack Rabbit' },
   { label: 'Age', value: 'Six years old' },
   { label: 'Appearance', value: 'Dark and light brown fur, sporty sneakers, backwards cap' },
-  { label: 'Lives', value: 'With the Burrow Bunnies' },
+  { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: 'Adventure expert in training' },
   { label: 'Hero', value: 'Grandad Reggie' },
   { label: 'Dream', value: 'To be a player, coach and mascot — all at once!' },

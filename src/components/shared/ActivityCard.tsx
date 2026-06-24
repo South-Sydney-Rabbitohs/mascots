@@ -37,7 +37,7 @@ export default function ActivityCard({ activity }: ActivityCardProps) {
         window.open(activity.ctaHref, '_blank', 'noreferrer')
       }
     } else {
-      alert(`${activity.title} — coming soon! Check back soon for more Burrow Bunnies fun.`)
+      alert(`${activity.title} — coming soon! Check back soon for more Mascot Family fun.`)
     }
   }
 

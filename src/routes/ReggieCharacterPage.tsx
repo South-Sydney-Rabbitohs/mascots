@@ -15,7 +15,7 @@ const reggieFacts = [
   { label: 'Full name', value: 'Reggie Rabbit' },
   { label: 'Life stage', value: 'Grandfather' },
   { label: 'Appearance', value: 'White rabbit, five foot eight, big long ears & soft pink paws' },
-  { label: 'Lives', value: 'With the Burrow Bunnies in Redfern' },
+  { label: 'Lives', value: 'With the Mascot Family in Redfern' },
   { label: 'Occupation', value: 'Head Cheerleader, Chief Hugger & Grandfather-in-Chief' },
   { label: 'Loves', value: 'Running the Rabbitohs out, fans, Red & Green and carrot juice' },
   { label: 'Dream', value: 'A Premiership for the grandkids' },

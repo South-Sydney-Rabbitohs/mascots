@@ -124,7 +124,7 @@ function ColourCard({ card }: { card: ColouringCard }) {
           {card.description}
         </p>
         <button
-          onClick={() => alert(`${card.title} — colouring sheet coming soon! Check back soon for more Burrow Bunnies fun.`)}
+          onClick={() => alert(`${card.title} — colouring sheet coming soon! Check back soon for more Mascot Family fun.`)}
           className="font-['Baloo_2',cursive] font-bold text-sm text-white px-7 py-2.5 rounded-full shadow-md hover:opacity-90 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#007A3D]"
           style={{ backgroundColor: '#0D4F2A' }}
           aria-label={`Download PDF — ${card.title}`}

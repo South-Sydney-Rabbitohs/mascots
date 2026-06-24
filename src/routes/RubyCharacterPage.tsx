@@ -15,7 +15,7 @@ const rubyFacts = [
   { label: 'Full name', value: 'Ruby Rabbit' },
   { label: 'Age', value: 'Eight years old' },
   { label: 'Appearance', value: 'Five foot tall, caramel fur, punchy pink glasses' },
-  { label: 'Lives', value: 'With the Burrow Bunnies' },
+  { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: 'Rugby League player & big sister' },
   { label: 'Hero', value: 'Grandad Reggie' },
   { label: 'Dream', value: 'To wear the red and green for real one day' },

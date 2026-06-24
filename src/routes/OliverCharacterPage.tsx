@@ -15,7 +15,7 @@ const oliverFacts = [
   { label: 'Full name', value: 'Oliver Rabbit' },
   { label: 'Age', value: '36 years old' },
   { label: 'Appearance', value: 'Six foot tall, cuddly brown fur, bucket hat' },
-  { label: 'Lives', value: 'With the Burrow Bunnies' },
+  { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: 'Builder, boardgame champion & family man' },
   { label: 'Special skill', value: 'If it can be built, Oliver is your rabbit!' },
   { label: 'Hero', value: 'Scarlett and the whole Rabbit family' },

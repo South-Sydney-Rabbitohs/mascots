@@ -7,7 +7,7 @@ interface NewsletterBlockProps {
 }
 
 export default function NewsletterBlock({
-  heading = 'Join the Burrow Bunnies!',
+  heading = 'Join the Mascot Family!',
   subheading = 'Get the latest activities, competitions and news delivered to your inbox.',
 }: NewsletterBlockProps) {
   const [email, setEmail] = useState('')
@@ -25,7 +25,7 @@ export default function NewsletterBlock({
     // TODO: Braze newsletter_signup event
     // window.braze?.logCustomEvent('newsletter_signup', { email })
     // TODO: parental consent checkbox (COPPA / Australian Privacy Act)
-    alert('Thanks for signing up! The Burrow Bunnies newsletter is coming soon.')
+    alert('Thanks for signing up! The Mascot Family newsletter is coming soon.')
     setEmail('')
   }
 

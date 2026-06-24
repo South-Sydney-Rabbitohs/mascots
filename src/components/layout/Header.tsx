@@ -36,7 +36,7 @@ export default function Header() {
           <Link
             to="/"
             className="relative z-10 flex items-center flex-shrink-0 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-white rounded-lg"
-            aria-label="Burrow Bunnies — Home"
+            aria-label="Mascot Family — Home"
             onClick={() => setMenuOpen(false)}
           >
             <RabbitIcon className="h-16 w-auto" />
