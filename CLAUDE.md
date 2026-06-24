@@ -54,6 +54,12 @@ The mascot family lives in `src/data/characters.ts` as an array of `Character` o
 lead character and is always listed first. To add or edit a character, change the data here; to add a
 character *page*, add a route component under `src/routes/` and register it in `src/App.tsx`.
 
+## Downloadable templates (colouring sheets, printables)
+
+Static files served from `public/downloads/`, wired to an activity via `ctaAction: 'download'`. Read
+**[docs/DOWNLOADABLE-TEMPLATES.md](docs/DOWNLOADABLE-TEMPLATES.md)** before adding or changing one — the
+`download` action needs a one-time wire-up in `ActivityCard`, and there are base-path rules to follow.
+
 ## When you finish
 
 Summarise what changed in plain English for a non-technical reviewer, call out anything you were unsure
