@@ -1,0 +1,18 @@
+# Code owners — who must approve changes to the project's instruction &
+# guidance files before they can merge to `main`.
+#
+# Enforced by branch protection on `main`: "Require review from Code Owners"
+# is on, so a pull request that changes any path below needs @benclink's
+# approval to merge — on top of the normal review + passing CI checks.
+#
+# Note: GitHub does not let an author approve their own pull request. If you
+# author a change to one of these files, a *second* code owner must approve it.
+# Right now @benclink is the only owner, so add a co-owner (or a team) here if
+# you want solo edits to these files to be merge-able without waiting on Ben.
+
+# Agent / contributor instructions
+/CLAUDE.md            @benclink
+/docs/                @benclink
+
+# The ownership file itself — so the lock can't be quietly removed in a PR.
+/.github/CODEOWNERS   @benclink
