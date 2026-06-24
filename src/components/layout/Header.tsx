@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { clsx } from 'clsx'
@@ -13,7 +13,29 @@ const navLinks = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const shouldReduceMotion = useReducedMotion()
+  const lastScrollY = useRef(0)
+
+  // Auto-hide the header when scrolling down, reveal it when scrolling back up
+  // (and whenever near the top), so it stays out of the way while reading.
+  useEffect(() => {
+    lastScrollY.current = window.scrollY
+    const SCROLL_DELTA = 8 // ignore tiny scroll jitters
+    const REVEAL_NEAR_TOP = 80 // always show within this many px of the top
+    const onScroll = () => {
+      const y = window.scrollY
+      const delta = y - lastScrollY.current
+      if (Math.abs(delta) < SCROLL_DELTA) return
+      setHidden(y > REVEAL_NEAR_TOP && delta > 0)
+      lastScrollY.current = y
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Never hide while the mobile menu is open.
+  const isHidden = hidden && !menuOpen
 
   const menuVariants = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : -8 },
@@ -22,7 +44,14 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-40" role="banner">
+    <header
+      className={clsx(
+        'sticky top-0 z-40 transition-transform focus-within:translate-y-0',
+        shouldReduceMotion ? 'duration-0' : 'duration-300',
+        isHidden ? '-translate-y-[130%]' : 'translate-y-0',
+      )}
+      role="banner"
+    >
       {/* 50px transparent gap — reveals sky/cloud background above the nav pill */}
       <div className="h-[50px]" aria-hidden="true" />
 
