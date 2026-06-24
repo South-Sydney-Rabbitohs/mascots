@@ -13,7 +13,7 @@ const ruby = characters.find((c) => c.id === 'ruby')!
 
 const rubyFacts = [
   { label: 'Full name', value: 'Ruby Rabbit' },
-  { label: 'Age', value: 'Eight years old' },
+  { label: 'Lifestage', value: 'Granddaughter' },
   { label: 'Appearance', value: 'Five foot tall, caramel fur, punchy pink glasses' },
   { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: 'Rugby League player & big sister' },

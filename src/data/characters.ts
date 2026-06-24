@@ -65,7 +65,7 @@ export const characters: Character[] = [
       {
         id: 'reggie-moment-selfie',
         title: 'The Ultimate Selfie',
-        description: "The ultimate selfie shooter. No matter where Reggie is at the ground, every snap with him is the best snap of the day. Guaranteed.",
+        description: "The ultimate selfie taker. No matter where Reggie is at the ground, every snap with him is the best snap of the day. Guaranteed.",
         image: '',
         altText: 'Reggie Rabbit taking a selfie with fans at a Rabbitohs game',
       },
