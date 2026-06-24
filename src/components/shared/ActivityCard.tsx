@@ -13,6 +13,11 @@ export const ACTIVITY_THEMES: Record<string, { bg: string; accent: string }> = {
   'colour-in-characters':      { bg: 'linear-gradient(150deg,#FF6B9D 0%,#C8102E 50%,#FFD54F 100%)', accent: '#C8102E' },
   'colour-in-reggie':          { bg: 'linear-gradient(150deg,#56C45E 0%,#047442 100%)', accent: '#047442' },
   'colour-in-scarlett':        { bg: 'linear-gradient(150deg,#FF8A65 0%,#FA623E 100%)', accent: '#C8102E' },
+  'colour-in-jack':                { bg: 'linear-gradient(150deg,#4DB6AC 0%,#046F6A 100%)', accent: '#046F6A' },
+  'which-one-sounds-like-you':     { bg: 'linear-gradient(150deg,#4DB6AC 0%,#024846 100%)', accent: '#024846' },
+  'colour-in-ruby':                { bg: 'linear-gradient(150deg,#F48FB1 0%,#E46180 100%)', accent: '#E46180' },
+  'colour-in-oliver':              { bg: 'linear-gradient(150deg,#7B5E58 0%,#382B2A 100%)', accent: '#382B2A' },
+  'which-one-sounds-like-you-ruby':{ bg: 'linear-gradient(150deg,#F48FB1 0%,#C8102E 100%)', accent: '#C8102E' },
 }
 const DEFAULT_THEME = { bg: 'linear-gradient(150deg,#42A5F5 0%,#1565C0 100%)', accent: '#1565C0' }
 
