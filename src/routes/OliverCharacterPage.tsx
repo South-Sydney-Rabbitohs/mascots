@@ -46,7 +46,14 @@ export default function OliverCharacterPage() {
         <CharacterBio character={oliver} />
 
         {/* Clipboard Quick Facts */}
-        <ClipboardFacts facts={oliverFacts} characterName={oliver.firstName} />
+        <ClipboardFacts
+          facts={oliverFacts}
+          characterName={oliver.firstName}
+          sectionBg="#D1BABA"
+          headingColor="#382B2A"
+          bodyColor="#1A1A1A"
+          clipboardFrameColor="#382B2A"
+        />
 
         {/* Best Moments */}
         <BestMomentsSection moments={oliver.bestMoments} characterName={oliver.firstName} />

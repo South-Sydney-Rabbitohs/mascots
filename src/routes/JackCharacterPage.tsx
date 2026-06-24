@@ -45,7 +45,14 @@ export default function JackCharacterPage() {
         <CharacterBio character={jack} />
 
         {/* Clipboard Quick Facts */}
-        <ClipboardFacts facts={jackFacts} characterName={jack.firstName} />
+        <ClipboardFacts
+          facts={jackFacts}
+          characterName={jack.firstName}
+          sectionBg="#F3D8B5"
+          headingColor="#046F6A"
+          bodyColor="#1A1A1A"
+          clipboardFrameColor="#046F6A"
+        />
 
         {/* Best Moments */}
         <BestMomentsSection moments={jack.bestMoments} characterName={jack.firstName} />

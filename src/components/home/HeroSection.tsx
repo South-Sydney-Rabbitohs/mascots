@@ -10,8 +10,8 @@ export default function HeroSection() {
   return (
     <section
       aria-label="Meet the Rabbit Family"
-      className="relative overflow-hidden"
-      style={{ backgroundColor: '#E3FCE2', minHeight: 520 }}
+      className="relative overflow-hidden md:min-h-[520px]"
+      style={{ backgroundColor: '#E3FCE2' }}
     >
       {/* ── Field background image — bottom 50% of section ── */}
       <div
@@ -36,7 +36,7 @@ export default function HeroSection() {
       />
 
       {/* ── Family PNG ── */}
-      <div className="relative z-10 flex justify-center items-end" style={{ minHeight: 520 }}>
+      <div className="relative z-10 flex justify-center items-end md:min-h-[520px]">
         <img
           src="/meet-the-family.png"
           alt="Meet the Rabbit Family — Reggie, Scarlett, Jack, Ruby and Oliver standing together"

@@ -46,7 +46,14 @@ export default function ScarlettCharacterPage() {
         <CharacterBio character={scarlett} />
 
         {/* Clipboard Quick Facts */}
-        <ClipboardFacts facts={scarlettFacts} characterName={scarlett.firstName} />
+        <ClipboardFacts
+          facts={scarlettFacts}
+          characterName={scarlett.firstName}
+          sectionBg="#ECC485"
+          headingColor="#BC0800"
+          bodyColor="#1A1A1A"
+          clipboardFrameColor="#FC603C"
+        />
 
         {/* Best Moments */}
         <BestMomentsSection moments={scarlett.bestMoments} characterName={scarlett.firstName} />

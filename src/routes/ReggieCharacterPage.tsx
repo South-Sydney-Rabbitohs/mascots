@@ -45,7 +45,14 @@ export default function ReggieCharacterPage() {
         <CharacterBio character={reggie} />
 
         {/* Clipboard Quick Facts */}
-        <ClipboardFacts facts={reggieFacts} characterName={reggie.firstName} />
+        <ClipboardFacts
+          facts={reggieFacts}
+          characterName={reggie.firstName}
+          sectionBg="#BC0800"
+          headingColor="#ffffff"
+          bodyColor="rgba(255,255,255,0.85)"
+          clipboardFrameColor="#EAE8E8"
+        />
 
         {/* Best Moments */}
         <BestMomentsSection moments={reggie.bestMoments} characterName={reggie.firstName} />

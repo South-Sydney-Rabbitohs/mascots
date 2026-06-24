@@ -46,7 +46,14 @@ export default function RubyCharacterPage() {
         <CharacterBio character={ruby} />
 
         {/* Clipboard Quick Facts */}
-        <ClipboardFacts facts={rubyFacts} characterName={ruby.firstName} />
+        <ClipboardFacts
+          facts={rubyFacts}
+          characterName={ruby.firstName}
+          sectionBg="#FEC680"
+          headingColor="#E46180"
+          bodyColor="#1A1A1A"
+          clipboardFrameColor="#E46180"
+        />
 
         {/* Best Moments */}
         <BestMomentsSection moments={ruby.bestMoments} characterName={ruby.firstName} />

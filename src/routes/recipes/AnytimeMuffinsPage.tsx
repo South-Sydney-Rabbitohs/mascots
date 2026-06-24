@@ -1,59 +1,8 @@
 import RecipeDetailPage from '@/components/recipe/RecipeDetailPage'
 
-// Images sourced from eatwell101.com — replace with licensed artwork before launch
-const BASE = 'https://www.eatwell101.com/wp-content/uploads/2024/02'
-
-// Cartoon SVG illustration — savoury cheesy muffin
-function MuffinCartoon() {
-  return (
-    <svg viewBox="0 0 200 220" width="220" height="240" aria-hidden="true" style={{ filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.2))' }}>
-      {/* Muffin paper cup */}
-      <path d="M60 150 L55 210 L145 210 L140 150 Z" fill="#C8102E" />
-      {/* Vertical white stripes on cup */}
-      {[70, 85, 100, 115, 130].map((x) => (
-        <line key={x} x1={x} y1="152" x2={x - 4} y2="208" stroke="white" strokeWidth="3.5" strokeLinecap="round" opacity="0.5" />
-      ))}
-      {/* Cup rim */}
-      <rect x="52" y="146" width="96" height="10" rx="4" fill="#A00020" />
-
-      {/* Muffin dome body */}
-      <ellipse cx="100" cy="110" rx="55" ry="48" fill="#D4A96A" />
-      {/* Dome highlight */}
-      <ellipse cx="83" cy="88" rx="18" ry="12" fill="#E8C480" opacity="0.6" />
-
-      {/* Crispy top crust */}
-      <path d="M50 118 Q55 90 70 80 Q85 65 100 62 Q115 65 130 80 Q145 90 150 118 Z" fill="#C8842A" />
-      {/* Top crust highlight */}
-      <ellipse cx="88" cy="78" rx="14" ry="8" fill="#DDA040" opacity="0.5" />
-
-      {/* Cheese specks */}
-      <circle cx="88" cy="95" r="4" fill="#FFD54F" />
-      <circle cx="106" cy="88" r="3.5" fill="#FFD54F" />
-      <circle cx="118" cy="100" r="3" fill="#FFD54F" />
-      <circle cx="80" cy="108" r="3" fill="#FFD54F" />
-
-      {/* Zucchini green bits */}
-      <ellipse cx="96" cy="72" rx="3" ry="5" fill="#4CAF50" />
-      <ellipse cx="108" cy="75" rx="2.5" ry="4" fill="#388E3C" />
-      <ellipse cx="85" cy="78" rx="2" ry="4" fill="#4CAF50" />
-
-      {/* Steam curls */}
-      <path d="M80 58 Q76 50 80 43 Q84 36 80 28" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" opacity="0.7" />
-      <path d="M100 54 Q96 46 100 38 Q104 30 100 22" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" opacity="0.6" />
-      <path d="M120 58 Q116 50 120 43 Q124 36 120 28" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" opacity="0.7" />
-
-      {/* Parmesan sprinkle on top */}
-      <circle cx="93" cy="67" r="2.5" fill="#FFF9C4" opacity="0.9" />
-      <circle cx="105" cy="64" r="2" fill="#FFF9C4" opacity="0.9" />
-      <circle cx="115" cy="70" r="2" fill="#FFF9C4" opacity="0.9" />
-    </svg>
-  )
-}
-
 export default function AnytimeMuffinsPage() {
   return (
     <RecipeDetailPage
-      foodCartoon={<MuffinCartoon />}
       title="Anytime Muffins"
       tagline="Breaky on the run, after-school snacks & lunchbox hero!"
       makes="Makes 8 muffins"
@@ -82,14 +31,7 @@ export default function AnytimeMuffinsPage() {
         { icon: '🍱', text: 'Lunchbox friendly' },
         { icon: '🍳', text: 'Perfect for meal prep' },
       ]}
-      gallery={[
-        { src: `${BASE}/cheesy-zucchini-egg-muffins-recipe-easy-800x800.jpg`, alt: 'Golden cheesy zucchini egg muffins' },
-        { src: `${BASE}/easy-Egg-Muffins-recipe.jpg`, alt: 'Easy egg muffins stacked on a board' },
-        { src: `${BASE}/baked-egg-muffins.jpg`, alt: 'Baked egg muffins fresh from the oven' },
-        { src: `${BASE}/zucchini-egg-muffins.jpg`, alt: 'Zucchini egg muffins close up' },
-        { src: `${BASE}/baked-egg-muffins-in-a-plate.jpg`, alt: 'Baked muffins on a plate ready to serve' },
-        { src: `${BASE}/egg-muffins.jpg`, alt: 'Egg muffins with vegetables' },
-      ]}
+      gallery={[]}
       ingredientGroups={[{
         items: [
           '1 cup plain cottage cheese',

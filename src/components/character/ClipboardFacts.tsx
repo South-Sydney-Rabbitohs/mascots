@@ -6,13 +6,25 @@ interface ClipboardFact {
 interface ClipboardFactsProps {
   facts: ClipboardFact[]
   characterName: string
+  sectionBg?: string
+  headingColor?: string
+  bodyColor?: string
+  clipboardFrameColor?: string
 }
 
-export default function ClipboardFacts({ facts, characterName }: ClipboardFactsProps) {
+export default function ClipboardFacts({
+  facts,
+  characterName,
+  sectionBg = '#BFE9F7',
+  headingColor = '#51319C',
+  bodyColor = 'rgba(26,26,26,0.7)',
+  clipboardFrameColor = '#8B5E3C',
+}: ClipboardFactsProps) {
   return (
     <section
       aria-labelledby="clipboard-heading"
-      className="bg-[#BFE9F7] py-14 px-4"
+      className="py-14 px-4"
+      style={{ backgroundColor: sectionBg }}
     >
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-10 items-center">
         {/* Clipboard */}
@@ -22,7 +34,7 @@ export default function ClipboardFacts({ facts, characterName }: ClipboardFactsP
           {/* Clipboard backing */}
           <div
             className="rounded-2xl shadow-2xl pt-10 pb-6 px-6"
-            style={{ backgroundColor: '#8B5E3C' }}
+            style={{ backgroundColor: clipboardFrameColor }}
           >
             {/* Clip */}
             <div
@@ -35,7 +47,8 @@ export default function ClipboardFacts({ facts, characterName }: ClipboardFactsP
             />
             {/* Clip hole */}
             <div
-              className="absolute -top-1 left-1/2 -translate-x-1/2 z-20 w-5 h-5 rounded-full bg-[#8B5E3C] border-2 border-[#E65100]"
+              className="absolute -top-1 left-1/2 -translate-x-1/2 z-20 w-5 h-5 rounded-full border-2 border-[#E65100]"
+              style={{ backgroundColor: clipboardFrameColor }}
               aria-hidden="true"
             />
 
@@ -72,10 +85,10 @@ export default function ClipboardFacts({ facts, characterName }: ClipboardFactsP
 
         {/* Decorative text beside clipboard */}
         <div className="text-center md:text-left">
-          <p className="font-['Baloo_2',cursive] font-extrabold text-3xl md:text-4xl text-[#51319C] mb-3">
+          <p className="font-['Baloo_2',cursive] font-extrabold text-3xl md:text-4xl mb-3" style={{ color: headingColor }}>
             Get to know {characterName}!
           </p>
-          <p className="font-['Nunito',sans-serif] text-[#1A1A1A]/70 text-base md:text-lg max-w-sm">
+          <p className="font-['Nunito',sans-serif] text-base md:text-lg max-w-sm" style={{ color: bodyColor }}>
             Every great Burrow Bunnies member has a fact sheet. Here are {characterName}'s most important facts — straight from the clipboard!
           </p>
         </div>

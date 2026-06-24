@@ -1,71 +1,8 @@
 import RecipeDetailPage from '@/components/recipe/RecipeDetailPage'
 
-// Images sourced from cottercrunch.com — replace with licensed artwork before launch
-const BASE = 'https://www.cottercrunch.com/wp-content/uploads/2017/03/No-Bake-Apricot-Oat-Protein-Bars-Nut-Free-Vegan-7'
-
-// Cartoon SVG illustration — stacked oat bars with chocolate drizzle
-function OatBarsCartoon() {
-  return (
-    <svg viewBox="0 0 220 210" width="240" height="230" aria-hidden="true" style={{ filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.2))' }}>
-      {/* Shadow */}
-      <ellipse cx="110" cy="196" rx="82" ry="10" fill="rgba(0,0,0,0.15)" />
-
-      {/* Bottom bar */}
-      <rect x="28" y="148" width="164" height="44" rx="8" fill="#C8A95A" />
-      {/* Oat texture dots — bottom bar */}
-      {[[40,160],[55,168],[70,156],[85,164],[100,158],[115,165],[130,157],[145,163],[155,170],[168,158],[48,174],[80,174],[110,172],[140,174],[160,174]].map(([x,y],i) => (
-        <circle key={i} cx={x} cy={y} r="3" fill="#A07830" opacity="0.6" />
-      ))}
-      {/* Apricot bits — bottom bar */}
-      {[[60,162],[95,170],[135,160],[158,166]].map(([x,y],i) => (
-        <ellipse key={i} cx={x} cy={y} rx="5" ry="4" fill="#FF8C42" opacity="0.85" />
-      ))}
-
-      {/* Middle bar */}
-      <rect x="34" y="104" width="152" height="48" rx="8" fill="#D4B468" />
-      {/* Oat texture dots — middle bar */}
-      {[[46,116],[62,124],[78,113],[94,120],[108,115],[124,122],[138,114],[152,121],[164,116],[52,130],[82,132],[112,128],[142,130],[162,128]].map(([x,y],i) => (
-        <circle key={i} cx={x} cy={y} r="3" fill="#A88040" opacity="0.55" />
-      ))}
-      {/* Apricot bits — middle bar */}
-      {[[68,118],[108,126],[148,116]].map(([x,y],i) => (
-        <ellipse key={i} cx={x} cy={y} rx="5" ry="4" fill="#FF8C42" opacity="0.85" />
-      ))}
-      {/* Chocolate drizzle — middle bar */}
-      <path d="M40 106 Q60 100 80 106 Q100 112 120 106 Q140 100 160 106 Q175 110 180 106" fill="none" stroke="#3D1F05" strokeWidth="4" strokeLinecap="round" />
-      <path d="M44 114 Q65 108 86 114 Q107 120 128 114 Q149 108 170 114" fill="none" stroke="#3D1F05" strokeWidth="3.5" strokeLinecap="round" />
-
-      {/* Top bar (focal) */}
-      <rect x="40" y="56" width="140" height="52" rx="8" fill="#E0C07A" />
-      {/* Oat texture dots — top bar */}
-      {[[52,68],[68,76],[84,65],[100,72],[114,67],[130,74],[144,66],[156,73],[165,80],[58,84],[88,86],[118,82],[148,84],[168,78]].map(([x,y],i) => (
-        <circle key={i} cx={x} cy={y} r="3.5" fill="#B09050" opacity="0.55" />
-      ))}
-      {/* Pepita seeds — top bar */}
-      {[[75,70],[105,78],[133,68],[155,76]].map(([x,y],i) => (
-        <ellipse key={i} cx={x} cy={y} rx="4" ry="3" fill="#7CB87A" opacity="0.85" transform={`rotate(${i*40},${x},${y})`} />
-      ))}
-      {/* Apricot bits — top bar */}
-      {[[60,80],[98,70],[140,80]].map(([x,y],i) => (
-        <ellipse key={i} cx={x} cy={y} rx="6" ry="4.5" fill="#FF8C42" opacity="0.9" />
-      ))}
-      {/* Chocolate drizzle — top bar (thicker, more prominent) */}
-      <path d="M44 60 Q68 52 92 60 Q116 68 140 60 Q158 54 176 60" fill="none" stroke="#3D1F05" strokeWidth="5" strokeLinecap="round" />
-      <path d="M48 70 Q72 62 96 70 Q120 78 144 70 Q162 64 174 70" fill="none" stroke="#3D1F05" strokeWidth="4" strokeLinecap="round" />
-      {/* Chocolate gloss */}
-      <path d="M56 59 Q72 55 88 59" fill="none" stroke="#6B3E1A" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
-
-      {/* Bar edge highlights */}
-      <rect x="40" y="56" width="140" height="6" rx="4" fill="white" opacity="0.12" />
-      <rect x="34" y="104" width="152" height="6" rx="4" fill="white" opacity="0.10" />
-    </svg>
-  )
-}
-
 export default function NoBakeOatBarsPage() {
   return (
     <RecipeDetailPage
-      foodCartoon={<OatBarsCartoon />}
       title="No-Bake Oat Bars"
       tagline="With Dark Chocolate Drizzle — mix, press, chill and enjoy!"
       makes="Makes 10 bars"
@@ -94,11 +31,7 @@ export default function NoBakeOatBarsPage() {
         { icon: '🍳', text: 'Great for meal prep' },
         { icon: '❄️', text: 'Perfect for fridge or freezer' },
       ]}
-      gallery={[
-        { src: `${BASE}.jpg`, alt: 'No-bake oat bars with dark chocolate drizzle' },
-        { src: `${BASE}-700x923.jpg`, alt: 'Apricot oat bars stacked close up' },
-        { src: `${BASE}-777x1024.jpg`, alt: 'Oat bars with chocolate drizzle detail' },
-      ]}
+      gallery={[]}
       ingredientGroups={[
         {
           title: 'Oat Bars',

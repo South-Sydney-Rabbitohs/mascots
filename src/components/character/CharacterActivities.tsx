@@ -27,9 +27,9 @@ export default function CharacterActivities({ characterId, characterName }: Char
           {characterName}'s Activities
         </SectionHeading>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {activities.map((activity) => (
-            <ActivityCard key={activity.id} activity={activity} variant="character" />
+            <ActivityCard key={activity.id} activity={activity} />
           ))}
         </div>
       </div>
