@@ -13,7 +13,7 @@ const oliver = characters.find((c) => c.id === 'oliver')!
 
 const oliverFacts = [
   { label: 'Full name', value: 'Oliver Rabbit' },
-  { label: 'Age', value: '36 years old' },
+  { label: 'Lifestage', value: 'Son-in-Law' },
   { label: 'Appearance', value: 'Six foot tall, cuddly brown fur, bucket hat' },
   { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: 'Builder, boardgame champion & family man' },

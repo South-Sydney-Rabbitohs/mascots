@@ -13,7 +13,7 @@ const jack = characters.find((c) => c.id === 'jack')!
 
 const jackFacts = [
   { label: 'Full name', value: 'Jack Rabbit' },
-  { label: 'Age', value: 'Six years old' },
+  { label: 'Lifestage', value: 'Grandson' },
   { label: 'Appearance', value: 'Dark and light brown fur, sporty sneakers, backwards cap' },
   { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: 'Adventure expert in training' },
