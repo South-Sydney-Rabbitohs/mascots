@@ -112,7 +112,7 @@ export default function RecipeDetailPage({
                 {perfectFor.map((item) => (
                   <span
                     key={item}
-                    className="inline-block bg-white border-2 border-[#BFD76E] font-['Nunito',sans-serif] font-semibold text-[#0D4F2A] text-sm px-4 py-2 rounded-full shadow-sm"
+                    className="inline-block bg-white border-2 border-[#B5DBB4] font-['Nunito',sans-serif] font-semibold text-[#0D4F2A] text-sm px-4 py-2 rounded-full shadow-sm"
                   >
                     {item}
                   </span>
@@ -128,7 +128,7 @@ export default function RecipeDetailPage({
                 {goodBecause.map(({ icon, text }) => (
                   <div
                     key={text}
-                    className="bg-white rounded-2xl px-4 py-3 shadow-sm flex items-center gap-3 border border-[#BFD76E]/50"
+                    className="bg-white rounded-2xl px-4 py-3 shadow-sm flex items-center gap-3 border border-[#B5DBB4]/50"
                   >
                     <span className="text-2xl flex-shrink-0" aria-hidden="true">{icon}</span>
                     <span className="font-['Nunito',sans-serif] font-semibold text-[#1A1A1A] text-sm leading-snug">{text}</span>
@@ -242,7 +242,7 @@ export default function RecipeDetailPage({
               <h2 className="font-['Baloo_2',cursive] font-extrabold text-2xl md:text-3xl text-[#0D4F2A] mb-5">💡 Parent Tips</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {parentTips.map(({ icon, tip }) => (
-                  <div key={tip} className="bg-white rounded-2xl px-5 py-4 shadow-sm flex items-start gap-4 border border-[#BFD76E]/50">
+                  <div key={tip} className="bg-white rounded-2xl px-5 py-4 shadow-sm flex items-start gap-4 border border-[#B5DBB4]/50">
                     <span className="text-2xl flex-shrink-0 mt-0.5" aria-hidden="true">{icon}</span>
                     <p className="font-['Nunito',sans-serif] text-[#1A1A1A]/80 text-sm leading-relaxed">{tip}</p>
                   </div>
@@ -253,7 +253,7 @@ export default function RecipeDetailPage({
             <div>
               <h2 className="font-['Baloo_2',cursive] font-extrabold text-2xl md:text-3xl text-[#0D4F2A] mb-5">🔄 Easy Swaps</h2>
               <div className="bg-white rounded-3xl shadow-md overflow-hidden">
-                <div className="divide-y divide-[#BFD76E]/40">
+                <div className="divide-y divide-[#B5DBB4]/40">
                   {easySwaps.map(({ icon, swap, forText }) => (
                     <div key={swap} className="flex items-center gap-4 px-6 py-4">
                       <span className="text-2xl flex-shrink-0" aria-hidden="true">{icon}</span>
@@ -271,7 +271,7 @@ export default function RecipeDetailPage({
               <h2 className="font-['Baloo_2',cursive] font-extrabold text-2xl md:text-3xl text-[#0D4F2A] mb-5">📦 Storage</h2>
               <div className="grid sm:grid-cols-3 gap-4">
                 {storage.map(({ icon, title, text }) => (
-                  <div key={title} className="bg-white rounded-2xl px-5 py-5 shadow-sm border border-[#BFD76E]/50 text-center">
+                  <div key={title} className="bg-white rounded-2xl px-5 py-5 shadow-sm border border-[#B5DBB4]/50 text-center">
                     <div className="text-4xl mb-3" aria-hidden="true">{icon}</div>
                     <h3 className="font-['Baloo_2',cursive] font-bold text-base mb-2" style={{ color: accentColor }}>{title}</h3>
                     <p className="font-['Nunito',sans-serif] text-[#1A1A1A]/70 text-sm leading-relaxed">{text}</p>

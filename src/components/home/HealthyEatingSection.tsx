@@ -32,7 +32,7 @@ export default function HealthyEatingSection() {
       id="healthy-living"
       aria-labelledby="healthy-heading"
       className="py-16 px-4"
-      style={{ backgroundColor: '#BFD76E' }}
+      style={{ backgroundColor: '#B5DBB4' }}
     >
       <div className="max-w-5xl mx-auto">
 

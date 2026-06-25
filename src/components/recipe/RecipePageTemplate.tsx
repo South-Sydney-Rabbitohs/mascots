@@ -90,7 +90,7 @@ export default function RecipePageTemplate({
           {/* Grass strip */}
           <div
             className="absolute bottom-0 left-0 right-0"
-            style={{ height: '25%', backgroundColor: '#BFD76E', borderRadius: '60% 60% 0 0 / 30px 30px 0 0' }}
+            style={{ height: '25%', backgroundColor: '#B5DBB4', borderRadius: '60% 60% 0 0 / 30px 30px 0 0' }}
             aria-hidden="true"
           />
 
@@ -166,7 +166,7 @@ export default function RecipePageTemplate({
             </Link>
 
             {subtitle && (
-              <p className="font-['Nunito',sans-serif] text-[#1A1A1A]/70 text-base md:text-lg mb-10 max-w-2xl bg-white rounded-2xl px-5 py-4 shadow-sm border border-[#BFD76E]/60">
+              <p className="font-['Nunito',sans-serif] text-[#1A1A1A]/70 text-base md:text-lg mb-10 max-w-2xl bg-white rounded-2xl px-5 py-4 shadow-sm border border-[#B5DBB4]/60">
                 {subtitle}
               </p>
             )}
@@ -195,7 +195,7 @@ export default function RecipePageTemplate({
                             className="flex items-start gap-3 font-['Nunito',sans-serif] text-[#1A1A1A] text-sm leading-snug"
                           >
                             <span className="mt-1 w-5 h-5 flex-shrink-0 rounded-full border-2 border-[#007A3D] flex items-center justify-center" aria-hidden="true">
-                              <span className="w-2 h-2 rounded-full bg-[#BFD76E]" />
+                              <span className="w-2 h-2 rounded-full bg-[#B5DBB4]" />
                             </span>
                             {item}
                           </li>
@@ -221,7 +221,7 @@ export default function RecipePageTemplate({
                       >
                         {i + 1}
                       </span>
-                      <p className="font-['Nunito',sans-serif] text-[#1A1A1A]/80 text-sm leading-relaxed pt-1 bg-white rounded-2xl px-4 py-3 shadow-sm flex-1 border border-[#BFD76E]/40">
+                      <p className="font-['Nunito',sans-serif] text-[#1A1A1A]/80 text-sm leading-relaxed pt-1 bg-white rounded-2xl px-4 py-3 shadow-sm flex-1 border border-[#B5DBB4]/40">
                         {step}
                       </p>
                     </li>

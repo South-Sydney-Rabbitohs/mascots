@@ -12,16 +12,15 @@ import CharacterFamily from '@/components/character/CharacterFamily'
 const scarlett = characters.find((c) => c.id === 'scarlett')!
 
 const scarlettFacts = [
-  { label: 'Full name', value: 'Scarlett Rabbit' },
-  { label: 'Life stage', value: 'Mum' },
+  { label: 'Name', value: 'Scarlett' },
+  { label: 'Family Status', value: 'Mum' },
   { label: 'Appearance', value: 'Five foot nine, white and brown fur, snazzy shoes, bouncy beanie' },
-  { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: "Rugby League coach & Reggie's daughter" },
   { label: 'Special skill', value: 'Fastest in the family' },
-  { label: 'Hero', value: 'Reggie Rabbit (her dad)' },
+  { label: 'Hero', value: 'Reggie (her dad)' },
   { label: 'Dream', value: 'A premiership ring of her own' },
   { label: 'Fun fact', value: 'Used to be ball girl when Reggie first ran the team out!' },
-  { label: 'Related characters', value: 'Oliver, Ruby, Jack and Reggie Rabbit' },
+  { label: 'Related characters', value: 'Oliver, Ruby, Jack and Reggie' },
 ]
 
 export default function ScarlettCharacterPage() {
@@ -33,11 +32,10 @@ export default function ScarlettCharacterPage() {
         {/* Park hero scene */}
         <ParkHero
           characterName={scarlett.firstName}
-          characterSurname={scarlett.lastName}
           catchphrase="Hi, I'm Scarlett — but you can call me Scar."
           tagline="Fastest in the family, loudest in the stand — Reggie's daughter through and through!"
           imageSrc="/characters/scarlett-header.png"
-          imageAlt="Scarlett Rabbit standing proudly in her South Sydney Rabbitohs kit"
+          imageAlt="Scarlett standing proudly in her South Sydney Rabbitohs kit"
           accentColor={scarlett.accentColor}
           bannerColor="#FA623E"
         />

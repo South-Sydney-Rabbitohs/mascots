@@ -12,15 +12,14 @@ import CharacterFamily from '@/components/character/CharacterFamily'
 const jack = characters.find((c) => c.id === 'jack')!
 
 const jackFacts = [
-  { label: 'Full name', value: 'Jack Rabbit' },
-  { label: 'Lifestage', value: 'Grandson' },
+  { label: 'Name', value: 'Jack' },
+  { label: 'Family Status', value: 'Son' },
   { label: 'Appearance', value: 'Dark and light brown fur, sporty sneakers, backwards cap' },
-  { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: 'Adventure expert in training' },
   { label: 'Hero', value: 'Grandad Reggie' },
   { label: 'Dream', value: 'To be a player, coach and mascot — all at once!' },
   { label: 'Fun fact', value: 'Knows "Glory Glory to South Sydney" backwards!' },
-  { label: 'Related characters', value: 'Ruby, Scarlett, Reggie and Oliver Rabbit' },
+  { label: 'Related characters', value: 'Ruby, Scarlett, Reggie and Oliver' },
 ]
 
 export default function JackCharacterPage() {
@@ -32,11 +31,10 @@ export default function JackCharacterPage() {
         {/* Park hero scene */}
         <ParkHero
           characterName={jack.firstName}
-          characterSurname={jack.lastName}
           catchphrase="HEY HEY! I'm Jack!"
           tagline="Fastest bunny in the Burrow — cap backwards, aerodynamic. It's science!"
           imageSrc="/characters/jack-header.png"
-          imageAlt="Jack Rabbit standing confidently with his backwards cap"
+          imageAlt="Jack standing confidently with his backwards cap"
           accentColor={jack.accentColor}
           bannerColor="#046F6A"
         />

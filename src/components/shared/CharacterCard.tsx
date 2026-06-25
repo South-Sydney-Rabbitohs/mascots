@@ -47,10 +47,10 @@ export default function CharacterCard({ character, variant = 'home', index = 0, 
         >
           {!compact && (
             <h3 className="font-['Baloo_2',cursive] font-extrabold text-white text-xl leading-tight mb-1">
-              {character.firstName} {character.lastName}
+              {character.firstName}
             </h3>
           )}
-          <p className="font-['Nunito',sans-serif] text-white/80 text-xs leading-relaxed mb-3 line-clamp-2">
+          <p className="font-['Nunito',sans-serif] text-white/80 text-xs leading-relaxed mb-3 line-clamp-1">
             {character.tagline}
           </p>
           {character.available ? (
@@ -86,12 +86,12 @@ export default function CharacterCard({ character, variant = 'home', index = 0, 
           <Link
             to={`/characters/${character.slug}`}
             className="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#007A3D] rounded-3xl transition-transform duration-200 hover:scale-[1.04]"
-            aria-label={`Meet ${character.firstName} ${character.lastName}`}
+            aria-label={`Meet ${character.firstName}`}
           >
             {inner}
           </Link>
         ) : (
-          <div aria-label={`${character.firstName} ${character.lastName} — coming soon`}>{inner}</div>
+          <div aria-label={`${character.firstName} — coming soon`}>{inner}</div>
         )}
       </motion.div>
     )
@@ -117,7 +117,7 @@ export default function CharacterCard({ character, variant = 'home', index = 0, 
       </div>
       <div className="p-4">
         <h3 className="font-['Baloo_2',cursive] font-bold text-[#51319C] text-lg leading-tight">
-          {character.firstName} {character.lastName}
+          {character.firstName}
         </h3>
         <p className="text-sm text-[#1A1A1A]/70 font-['Nunito',sans-serif] mt-1 line-clamp-2">
           {character.tagline}
@@ -142,12 +142,12 @@ export default function CharacterCard({ character, variant = 'home', index = 0, 
         <Link
           to={`/characters/${character.slug}`}
           className="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#007A3D] rounded-3xl"
-          aria-label={`Meet ${character.firstName} ${character.lastName}`}
+          aria-label={`Meet ${character.firstName}`}
         >
           {cardContent}
         </Link>
       ) : (
-        <div aria-label={`${character.firstName} ${character.lastName} — coming soon`}>{cardContent}</div>
+        <div aria-label={`${character.firstName} — coming soon`}>{cardContent}</div>
       )}
     </motion.div>
   )
