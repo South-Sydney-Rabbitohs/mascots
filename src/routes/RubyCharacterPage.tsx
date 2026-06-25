@@ -12,7 +12,7 @@ import CharacterFamily from '@/components/character/CharacterFamily'
 const ruby = characters.find((c) => c.id === 'ruby')!
 
 const rubyFacts = [
-  { label: 'Full name', value: 'Ruby Rabbit' },
+  { label: 'Full name', value: 'Ruby' },
   { label: 'Lifestage', value: 'Granddaughter' },
   { label: 'Appearance', value: 'Five foot tall, caramel fur, punchy pink glasses' },
   { label: 'Lives', value: 'With the Mascot Family' },
@@ -21,7 +21,7 @@ const rubyFacts = [
   { label: 'Dream', value: 'To wear the red and green for real one day' },
   { label: 'Special skill', value: 'Makes everyone around her feel stronger and more confident' },
   { label: 'Fun fact', value: 'Once passed instead of scoring the match-winning try — teammate got the glory!' },
-  { label: 'Related characters', value: 'Jack, Scarlett, Oliver and Reggie Rabbit' },
+  { label: 'Related characters', value: 'Jack, Scarlett, Oliver and Reggie' },
 ]
 
 export default function RubyCharacterPage() {
@@ -33,11 +33,10 @@ export default function RubyCharacterPage() {
         {/* Park hero scene */}
         <ParkHero
           characterName={ruby.firstName}
-          characterSurname={ruby.lastName}
           catchphrase="Hello! I'm Ruby."
           tagline="The big sister with quiet confidence, a great pass and a heart full of Red & Green!"
           imageSrc="/characters/ruby-header.png"
-          imageAlt="Ruby Rabbit standing confidently wearing her pink glasses and holding a football"
+          imageAlt="Ruby standing confidently wearing her pink glasses and holding a football"
           accentColor={ruby.accentColor}
           bannerColor="#E56381"
         />

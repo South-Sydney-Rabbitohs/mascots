@@ -3,7 +3,7 @@ import { useReducedMotion } from 'framer-motion'
 
 interface ParkHeroProps {
   characterName: string
-  characterSurname: string
+  characterSurname?: string
   catchphrase: string
   tagline: string
   imageSrc: string
@@ -15,7 +15,6 @@ interface ParkHeroProps {
 
 export default function ParkHero({
   characterName,
-  characterSurname,
   catchphrase,
   tagline,
   imageSrc,
@@ -67,7 +66,7 @@ export default function ParkHero({
 
     return (
       <section
-        aria-label={`${characterName} ${characterSurname} hero banner`}
+        aria-label={`${characterName} hero banner`}
         className="relative w-full overflow-hidden"
         style={{ minHeight: 580, backgroundColor: bannerColor }}
       >
@@ -183,7 +182,7 @@ export default function ParkHero({
 
   return (
     <section
-      aria-label={`${characterName} ${characterSurname} hero scene`}
+      aria-label={`${characterName} hero scene`}
       className="relative w-full overflow-hidden"
       style={{ minHeight: '680px', backgroundColor: '#BFE9F7' }}
     >
@@ -230,7 +229,7 @@ export default function ParkHero({
       {/* Grass strip */}
       <div
         className="absolute bottom-0 left-0 right-0"
-        style={{ height: '28%', backgroundColor: '#BFD76E', borderRadius: '60% 60% 0 0 / 30px 30px 0 0' }}
+        style={{ height: '28%', backgroundColor: '#B5DBB4', borderRadius: '60% 60% 0 0 / 30px 30px 0 0' }}
         aria-hidden="true"
       />
 
@@ -250,12 +249,6 @@ export default function ParkHero({
           style={{ color: accentColor, fontSize: '2.5rem', lineHeight: 1, textShadow: '2px 2px 0 rgba(0,0,0,0.12)' }}
         >
           {characterName.toUpperCase()}
-        </div>
-        <div
-          className="font-['Baloo_2',cursive] font-extrabold mb-2"
-          style={{ color: '#007A3D', fontSize: '1.75rem', lineHeight: 1, textShadow: '1px 1px 0 rgba(0,0,0,0.08)' }}
-        >
-          {characterSurname.toUpperCase()}
         </div>
         <p className="font-['Baloo_2',cursive] font-bold text-base text-[#1A1A1A] bg-white/70 px-2 py-1 rounded-lg">
           "{catchphrase}"
@@ -278,12 +271,6 @@ export default function ParkHero({
           style={{ color: accentColor, fontSize: 'clamp(4rem, 8vw, 7rem)', textShadow: '4px 4px 0 rgba(0,0,0,0.12)' }}
         >
           {characterName.toUpperCase()}
-        </div>
-        <div
-          className="font-['Baloo_2',cursive] font-extrabold leading-none mb-6"
-          style={{ color: '#007A3D', fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', textShadow: '3px 3px 0 rgba(0,0,0,0.1)' }}
-        >
-          {characterSurname.toUpperCase()}
         </div>
         <p
           className="font-['Baloo_2',cursive] font-bold text-[#1A1A1A] bg-white/75 px-4 py-2 rounded-2xl mb-3"

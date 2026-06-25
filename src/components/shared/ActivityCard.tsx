@@ -32,14 +32,22 @@ export default function ActivityCard({ activity }: ActivityCardProps) {
         <div className="absolute w-40 h-40 rounded-full bg-white/10 -top-10 -right-10" aria-hidden="true" />
         <div className="absolute w-24 h-24 rounded-full bg-white/10 -bottom-6 -left-6" aria-hidden="true" />
         <div className="absolute w-16 h-16 rounded-full bg-white/10 top-4 left-8" aria-hidden="true" />
-        <span
-          className="relative z-10 select-none"
-          style={{ fontSize: 96, lineHeight: 1, filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.25))' }}
-          role="img"
-          aria-hidden="true"
-        >
-          {activity.emoji}
-        </span>
+        {activity.image ? (
+          <img
+            src={activity.image}
+            alt={activity.altText}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <span
+            className="relative z-10 select-none"
+            style={{ fontSize: 96, lineHeight: 1, filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.25))' }}
+            role="img"
+            aria-hidden="true"
+          >
+            {activity.emoji}
+          </span>
+        )}
       </div>
 
       {/* Content panel */}

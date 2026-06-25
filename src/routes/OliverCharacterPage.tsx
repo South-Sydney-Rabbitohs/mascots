@@ -12,7 +12,7 @@ import CharacterFamily from '@/components/character/CharacterFamily'
 const oliver = characters.find((c) => c.id === 'oliver')!
 
 const oliverFacts = [
-  { label: 'Full name', value: 'Oliver Rabbit' },
+  { label: 'Full name', value: 'Oliver' },
   { label: 'Lifestage', value: 'Son-in-Law' },
   { label: 'Appearance', value: 'Six foot tall, cuddly brown fur, bucket hat' },
   { label: 'Lives', value: 'With the Mascot Family' },
@@ -21,7 +21,7 @@ const oliverFacts = [
   { label: 'Hero', value: 'Scarlett and the whole Rabbit family' },
   { label: 'Dream', value: 'A perfect veggie garden and a Rabbitohs premiership' },
   { label: 'Fun fact', value: "Always says the right thing at the right time — even when he doesn't understand the game!" },
-  { label: 'Related characters', value: 'Scarlett, Ruby, Jack and Reggie Rabbit' },
+  { label: 'Related characters', value: 'Scarlett, Ruby, Jack and Reggie' },
 ]
 
 export default function OliverCharacterPage() {
@@ -33,11 +33,10 @@ export default function OliverCharacterPage() {
         {/* Park hero scene */}
         <ParkHero
           characterName={oliver.firstName}
-          characterSurname={oliver.lastName}
           catchphrase="Hey there guys, I'm Oliver."
           tagline="New to the Rabbitohs family — but heart and soul in the Burrow!"
           imageSrc="/characters/oliver-header.png"
-          imageAlt="Oliver Rabbit standing warmly in his South Sydney Rabbitohs kit"
+          imageAlt="Oliver standing warmly in his South Sydney Rabbitohs kit"
           accentColor={oliver.accentColor}
           bannerColor="#372B29"
         />

@@ -15,7 +15,7 @@ export default function CharacterActivities({ characterId, characterName }: Char
   return (
     <section
       aria-labelledby="char-activities-heading"
-      className="bg-[#BFD76E] py-14 px-4"
+      className="bg-[#B5DBB4] py-14 px-4"
     >
       <div className="max-w-5xl mx-auto">
         <SectionHeading
