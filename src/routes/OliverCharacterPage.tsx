@@ -12,10 +12,9 @@ import CharacterFamily from '@/components/character/CharacterFamily'
 const oliver = characters.find((c) => c.id === 'oliver')!
 
 const oliverFacts = [
-  { label: 'Full name', value: 'Oliver' },
-  { label: 'Lifestage', value: 'Son-in-Law' },
+  { label: 'Name', value: 'Oliver' },
+  { label: 'Family Status', value: 'Dad' },
   { label: 'Appearance', value: 'Six foot tall, cuddly brown fur, bucket hat' },
-  { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: 'Builder, boardgame champion & family man' },
   { label: 'Special skill', value: 'If it can be built, Oliver is your rabbit!' },
   { label: 'Hero', value: 'Scarlett and the whole Rabbit family' },

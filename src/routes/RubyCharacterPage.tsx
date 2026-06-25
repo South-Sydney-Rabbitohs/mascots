@@ -12,10 +12,9 @@ import CharacterFamily from '@/components/character/CharacterFamily'
 const ruby = characters.find((c) => c.id === 'ruby')!
 
 const rubyFacts = [
-  { label: 'Full name', value: 'Ruby' },
-  { label: 'Lifestage', value: 'Granddaughter' },
+  { label: 'Name', value: 'Ruby' },
+  { label: 'Family Status', value: 'Daughter' },
   { label: 'Appearance', value: 'Five foot tall, caramel fur, punchy pink glasses' },
-  { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: 'Rugby League player & big sister' },
   { label: 'Hero', value: 'Grandad Reggie' },
   { label: 'Dream', value: 'To wear the red and green for real one day' },

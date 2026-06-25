@@ -12,11 +12,10 @@ import CharacterFamily from '@/components/character/CharacterFamily'
 const reggie = characters.find((c) => c.id === 'reggie')!
 
 const reggieFacts = [
-  { label: 'Full name', value: 'Reggie' },
-  { label: 'Life stage', value: 'Grandfather' },
+  { label: 'Name', value: 'Reggie' },
+  { label: 'Family Status', value: 'Grandfather' },
   { label: 'Appearance', value: 'White rabbit, five foot eight, big long ears & soft pink paws' },
-  { label: 'Lives', value: 'With the Mascot Family in Redfern' },
-  { label: 'Occupation', value: 'Head Cheerleader, Chief Hugger & Grandfather-in-Chief' },
+  { label: 'Occupation', value: 'Chief Hugger & Grandfather' },
   { label: 'Loves', value: 'Running the Rabbitohs out, fans, Red & Green and carrot juice' },
   { label: 'Dream', value: 'A Premiership for the grandkids' },
   { label: 'Fun fact', value: 'Rabbitoh since 1968 — before colour television!' },

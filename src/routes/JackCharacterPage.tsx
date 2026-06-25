@@ -12,10 +12,9 @@ import CharacterFamily from '@/components/character/CharacterFamily'
 const jack = characters.find((c) => c.id === 'jack')!
 
 const jackFacts = [
-  { label: 'Full name', value: 'Jack' },
-  { label: 'Lifestage', value: 'Grandson' },
+  { label: 'Name', value: 'Jack' },
+  { label: 'Family Status', value: 'Son' },
   { label: 'Appearance', value: 'Dark and light brown fur, sporty sneakers, backwards cap' },
-  { label: 'Lives', value: 'With the Mascot Family' },
   { label: 'Occupation', value: 'Adventure expert in training' },
   { label: 'Hero', value: 'Grandad Reggie' },
   { label: 'Dream', value: 'To be a player, coach and mascot — all at once!' },
