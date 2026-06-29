@@ -3,17 +3,21 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { clsx } from 'clsx'
 import RabbitIcon from '@/components/shared/RabbitIcon'
-
-const navLinks = [
-  { label: 'Characters', href: '/#characters' },
-  { label: 'Activities', href: '/#activities' },
-  { label: 'Colour In', href: '/colouring' },
-  { label: 'Healthy Living', href: '/#healthy-living' },
-]
+import { useLanguage } from '@/contexts/LanguageContext'
+import { ui } from '@/i18n/translations'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const shouldReduceMotion = useReducedMotion()
+  const { lang, setLang } = useLanguage()
+  const t = ui[lang].nav
+
+  const navLinks = [
+    { label: t.characters, href: '/#characters' },
+    { label: t.activities, href: '/#activities' },
+    { label: t.colourIn, href: '/colouring' },
+    { label: t.healthyLiving, href: '/#healthy-living' },
+  ]
 
   const menuVariants = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : -8 },
@@ -32,7 +36,7 @@ export default function Header() {
           className="bg-white/60 backdrop-blur-md border border-white/60 shadow-lg rounded-2xl h-16 flex items-center justify-between px-6 gap-4"
           style={{ width: '70%' }}
         >
-          {/* Logo — overflows the pill above and below intentionally */}
+          {/* Logo */}
           <Link
             to="/"
             className="relative z-10 flex items-center flex-shrink-0 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-white rounded-lg"
@@ -57,10 +61,70 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Language toggle */}
+            <div
+              className="ml-2 flex items-center rounded-full border border-black/20 overflow-hidden text-xs font-['Baloo_2',cursive] font-bold"
+              role="group"
+              aria-label="Language"
+            >
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                aria-pressed={lang === 'en'}
+                className={clsx(
+                  'px-3 py-1.5 min-h-[36px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007A3D]',
+                  lang === 'en' ? 'bg-[#007A3D] text-white' : 'text-[#1A1A1A] hover:bg-black/10',
+                )}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang('zh')}
+                aria-pressed={lang === 'zh'}
+                className={clsx(
+                  'px-3 py-1.5 min-h-[36px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007A3D]',
+                  lang === 'zh' ? 'bg-[#007A3D] text-white' : 'text-[#1A1A1A] hover:bg-black/10',
+                )}
+              >
+                中文
+              </button>
+            </div>
           </nav>
 
           {/* Mobile: hamburger only */}
-          <div className="flex md:hidden items-center">
+          <div className="flex md:hidden items-center gap-2">
+            {/* Language toggle — mobile */}
+            <div
+              className="flex items-center rounded-full border border-black/20 overflow-hidden text-xs font-['Baloo_2',cursive] font-bold"
+              role="group"
+              aria-label="Language"
+            >
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                aria-pressed={lang === 'en'}
+                className={clsx(
+                  'px-2.5 py-1 min-h-[36px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007A3D]',
+                  lang === 'en' ? 'bg-[#007A3D] text-white' : 'text-[#1A1A1A] hover:bg-black/10',
+                )}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang('zh')}
+                aria-pressed={lang === 'zh'}
+                className={clsx(
+                  'px-2.5 py-1 min-h-[36px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007A3D]',
+                  lang === 'zh' ? 'bg-[#007A3D] text-white' : 'text-[#1A1A1A] hover:bg-black/10',
+                )}
+              >
+                中文
+              </button>
+            </div>
+
             <button
               type="button"
               aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
@@ -83,7 +147,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile dropdown — aligned to the pill */}
+      {/* Mobile dropdown */}
       <AnimatePresence>
         {menuOpen && (
           <motion.nav

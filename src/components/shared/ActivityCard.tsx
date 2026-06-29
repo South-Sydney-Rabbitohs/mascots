@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import type { Activity } from '@/data/activities'
 import { ACTIVITY_THEMES, DEFAULT_THEME } from './activityThemes'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { activityZh } from '@/i18n/translations'
 
 interface ActivityCardProps {
   activity: Activity
@@ -9,6 +11,12 @@ interface ActivityCardProps {
 export default function ActivityCard({ activity }: ActivityCardProps) {
   const navigate = useNavigate()
   const theme = ACTIVITY_THEMES[activity.id] ?? DEFAULT_THEME
+  const { lang } = useLanguage()
+
+  const zh = lang === 'zh' ? activityZh[activity.id] : undefined
+  const title = zh?.title ?? activity.title
+  const description = zh?.description ?? activity.description
+  const ctaLabel = zh?.ctaLabel ?? activity.ctaLabel
 
   const handleCta = () => {
     if (activity.ctaAction === 'link' && activity.ctaHref) {
@@ -56,18 +64,18 @@ export default function ActivityCard({ activity }: ActivityCardProps) {
           className="font-['Baloo_2',cursive] font-extrabold text-base md:text-lg uppercase tracking-wide mb-2"
           style={{ color: theme.accent }}
         >
-          {activity.title}
+          {title}
         </h3>
         <p className="font-['Nunito',sans-serif] text-[#1A1A1A]/65 text-sm leading-relaxed mb-5 flex-1">
-          {activity.description}
+          {description}
         </p>
         <button
           onClick={handleCta}
           className="font-['Baloo_2',cursive] font-bold text-sm text-white px-7 py-2.5 rounded-full shadow-md hover:opacity-90 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#007A3D]"
           style={{ backgroundColor: '#0D4F2A' }}
-          aria-label={`${activity.ctaLabel} — ${activity.title}`}
+          aria-label={`${ctaLabel} — ${title}`}
         >
-          {activity.ctaLabel}
+          {ctaLabel}
         </button>
       </div>
     </article>

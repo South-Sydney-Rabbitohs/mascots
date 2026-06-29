@@ -1,6 +1,11 @@
 // TODO: parental consent flow — age gate and data collection consent
+import { useLanguage } from '@/contexts/LanguageContext'
+import { ui } from '@/i18n/translations'
 
 export default function ParentsZoneSection() {
+  const { lang } = useLanguage()
+  const t = ui[lang].home
+
   return (
     <section
       id="parents-zone"
@@ -14,18 +19,17 @@ export default function ParentsZoneSection() {
             id="parents-heading"
             className="font-['Baloo_2',cursive] font-extrabold text-4xl md:text-5xl text-white mb-3"
           >
-            Parents Zone
+            {t.parentsZoneHeading}
           </h2>
           <p className="font-['Nunito',sans-serif] text-white/70 text-base md:text-lg max-w-xl mx-auto">
-            Everything you need to know as a parent or guardian.
-            All content on this site is family-safe, ad-free and South Sydney Rabbitohs approved.
+            {t.parentsZoneSubtitle}
           </p>
         </div>
 
         {/* Safe content notice */}
         <div className="bg-white/10 rounded-2xl p-4 text-center border border-white/20">
           <p className="font-['Nunito',sans-serif] text-white/80 text-sm">
-            🔒 <strong className="text-white">Family-safe guarantee:</strong> No advertising. No data collection from children. No external links without parent review. All activities are supervised and age-appropriate for 6–14 year olds.
+            <strong className="text-white">{t.parentsZoneSafe}</strong>
           </p>
         </div>
       </div>

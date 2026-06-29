@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import SkipLink from '@/components/shared/SkipLink'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { ui, colourCardZh } from '@/i18n/translations'
 
 interface ColouringCard {
   id: string
@@ -95,6 +97,12 @@ const CARDS: ColouringCard[] = [
 ]
 
 function ColourCard({ card }: { card: ColouringCard }) {
+  const { lang } = useLanguage()
+  const t = ui[lang].colourIn
+  const zh = colourCardZh[card.id]
+  const title = lang === 'zh' && zh ? zh.title : card.title
+  const description = lang === 'zh' && zh ? zh.description : card.description
+
   return (
     <article className="flex flex-col rounded-3xl overflow-hidden shadow-xl bg-white h-full">
       <div className="relative flex items-center justify-center overflow-hidden" style={{ background: card.bg, minHeight: 220 }}>
@@ -115,18 +123,18 @@ function ColourCard({ card }: { card: ColouringCard }) {
           className="font-['Baloo_2',cursive] font-extrabold text-base md:text-lg uppercase tracking-wide mb-2"
           style={{ color: card.accent }}
         >
-          {card.title}
+          {title}
         </h3>
         <p className="font-['Nunito',sans-serif] text-[#1A1A1A]/65 text-sm leading-relaxed mb-5 flex-1">
-          {card.description}
+          {description}
         </p>
         <button
           onClick={() => alert(`${card.title} — colouring sheet coming soon! Check back soon for more Mascot Family fun.`)}
           className="font-['Baloo_2',cursive] font-bold text-sm text-white px-7 py-2.5 rounded-full shadow-md hover:opacity-90 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#007A3D]"
           style={{ backgroundColor: '#0D4F2A' }}
-          aria-label={`Download PDF — ${card.title}`}
+          aria-label={`${t.downloadPdf} — ${title}`}
         >
-          Download PDF
+          {t.downloadPdf}
         </button>
       </div>
     </article>
@@ -134,6 +142,9 @@ function ColourCard({ card }: { card: ColouringCard }) {
 }
 
 export default function ColourInPage() {
+  const { lang } = useLanguage()
+  const t = ui[lang].colourIn
+
   useEffect(() => {
     const prev = document.body.style.backgroundColor
     document.body.style.backgroundColor = '#B5DBB4'
@@ -155,7 +166,7 @@ export default function ColourInPage() {
               to="/#activities"
               className="inline-flex items-center gap-2 font-['Baloo_2',cursive] font-semibold text-sm text-[#0D4F2A] mb-8 hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#007A3D] rounded"
             >
-              ← Back to Activities
+              {t.backToActivities}
             </Link>
 
             <div className="text-center mb-10">
@@ -163,10 +174,10 @@ export default function ColourInPage() {
                 id="colouring-heading"
                 className="font-extrabold text-4xl md:text-5xl text-[#0D4F2A] mb-2"
               >
-                Colour In!
+                {t.heading}
               </h1>
               <p className="font-['Nunito',sans-serif] text-[#0D4F2A]/80 text-base md:text-lg">
-                Download and print your favourite characters — then grab your pencils and get colouring!
+                {t.subtitle}
               </p>
             </div>
 

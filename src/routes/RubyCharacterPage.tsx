@@ -8,6 +8,8 @@ import ClipboardFacts from '@/components/character/ClipboardFacts'
 import BestMomentsSection from '@/components/character/BestMomentsSection'
 import CharacterActivities from '@/components/character/CharacterActivities'
 import CharacterFamily from '@/components/character/CharacterFamily'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { characterZh } from '@/i18n/translations'
 
 const ruby = characters.find((c) => c.id === 'ruby')!
 
@@ -24,6 +26,13 @@ const rubyFacts = [
 ]
 
 export default function RubyCharacterPage() {
+  const { lang } = useLanguage()
+  const zh = characterZh.ruby
+
+  const catchphrase = lang === 'zh' ? zh.catchphrase : "Hello! I'm Ruby."
+  const tagline = lang === 'zh' ? zh.heroBannerTagline : "The big sister with quiet confidence, a great pass and a heart full of Red & Green!"
+  const facts = lang === 'zh' ? zh.facts : rubyFacts
+
   return (
     <>
       <SkipLink />
@@ -32,8 +41,8 @@ export default function RubyCharacterPage() {
         {/* Park hero scene */}
         <ParkHero
           characterName={ruby.firstName}
-          catchphrase="Hello! I'm Ruby."
-          tagline="The big sister with quiet confidence, a great pass and a heart full of Red & Green!"
+          catchphrase={catchphrase}
+          tagline={tagline}
           imageSrc="/characters/ruby-header.png"
           imageAlt="Ruby standing confidently wearing her pink glasses and holding a football"
           accentColor={ruby.accentColor}
@@ -45,7 +54,7 @@ export default function RubyCharacterPage() {
 
         {/* Clipboard Quick Facts */}
         <ClipboardFacts
-          facts={rubyFacts}
+          facts={facts}
           characterName={ruby.firstName}
           sectionBg="#FEC680"
           headingColor="#E46180"
@@ -54,7 +63,7 @@ export default function RubyCharacterPage() {
         />
 
         {/* Best Moments */}
-        <BestMomentsSection moments={ruby.bestMoments} characterName={ruby.firstName} />
+        <BestMomentsSection moments={ruby.bestMoments} characterName={ruby.firstName} characterId={ruby.id} />
 
         {/* Activities */}
         <CharacterActivities characterId={ruby.id} characterName={ruby.firstName} />

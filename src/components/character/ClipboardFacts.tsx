@@ -1,3 +1,6 @@
+import { useLanguage } from '@/contexts/LanguageContext'
+import { ui } from '@/i18n/translations'
+
 interface ClipboardFact {
   label: string
   value: string
@@ -20,6 +23,9 @@ export default function ClipboardFacts({
   bodyColor = 'rgba(26,26,26,0.7)',
   clipboardFrameColor = '#8B5E3C',
 }: ClipboardFactsProps) {
+  const { lang } = useLanguage()
+  const t = ui[lang].character
+
   return (
     <section
       aria-labelledby="clipboard-heading"
@@ -65,7 +71,7 @@ export default function ClipboardFacts({
                 id="clipboard-heading"
                 className="font-['Baloo_2',cursive] font-extrabold text-xl text-[#C8102E] mb-4 text-center"
               >
-                {characterName} Quick Facts
+                {characterName} {t.quickFacts}
               </h2>
               <dl className="space-y-3">
                 {facts.map((fact) => (
@@ -86,10 +92,10 @@ export default function ClipboardFacts({
         {/* Decorative text beside clipboard */}
         <div className="text-center md:text-left">
           <p className="font-['Baloo_2',cursive] font-extrabold text-3xl md:text-4xl mb-3" style={{ color: headingColor }}>
-            Get to know {characterName}!
+            {t.getToKnow} {characterName}!
           </p>
           <p className="font-['Nunito',sans-serif] text-base md:text-lg max-w-sm" style={{ color: bodyColor }}>
-            Every great Mascot has a fact sheet. Here are {characterName}'s most important facts — straight from the clipboard!
+            {t.factSheetIntro1} {characterName}{t.factSheetIntro2}
           </p>
         </div>
       </div>

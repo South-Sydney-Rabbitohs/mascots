@@ -8,6 +8,8 @@ import ClipboardFacts from '@/components/character/ClipboardFacts'
 import BestMomentsSection from '@/components/character/BestMomentsSection'
 import CharacterActivities from '@/components/character/CharacterActivities'
 import CharacterFamily from '@/components/character/CharacterFamily'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { characterZh } from '@/i18n/translations'
 
 const jack = characters.find((c) => c.id === 'jack')!
 
@@ -23,6 +25,13 @@ const jackFacts = [
 ]
 
 export default function JackCharacterPage() {
+  const { lang } = useLanguage()
+  const zh = characterZh.jack
+
+  const catchphrase = lang === 'zh' ? zh.catchphrase : "HEY HEY! I'm Jack!"
+  const tagline = lang === 'zh' ? zh.heroBannerTagline : "Fastest bunny in the Burrow — cap backwards, aerodynamic. It's science!"
+  const facts = lang === 'zh' ? zh.facts : jackFacts
+
   return (
     <>
       <SkipLink />
@@ -31,8 +40,8 @@ export default function JackCharacterPage() {
         {/* Park hero scene */}
         <ParkHero
           characterName={jack.firstName}
-          catchphrase="HEY HEY! I'm Jack!"
-          tagline="Fastest bunny in the Burrow — cap backwards, aerodynamic. It's science!"
+          catchphrase={catchphrase}
+          tagline={tagline}
           imageSrc="/characters/jack-header.png"
           imageAlt="Jack standing confidently with his backwards cap"
           accentColor={jack.accentColor}
@@ -44,7 +53,7 @@ export default function JackCharacterPage() {
 
         {/* Clipboard Quick Facts */}
         <ClipboardFacts
-          facts={jackFacts}
+          facts={facts}
           characterName={jack.firstName}
           sectionBg="#F3D8B5"
           headingColor="#046F6A"
@@ -53,7 +62,7 @@ export default function JackCharacterPage() {
         />
 
         {/* Best Moments */}
-        <BestMomentsSection moments={jack.bestMoments} characterName={jack.firstName} />
+        <BestMomentsSection moments={jack.bestMoments} characterName={jack.firstName} characterId={jack.id} />
 
         {/* Activities */}
         <CharacterActivities characterId={jack.id} characterName={jack.firstName} />

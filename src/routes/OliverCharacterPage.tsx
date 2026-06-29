@@ -8,6 +8,8 @@ import ClipboardFacts from '@/components/character/ClipboardFacts'
 import BestMomentsSection from '@/components/character/BestMomentsSection'
 import CharacterActivities from '@/components/character/CharacterActivities'
 import CharacterFamily from '@/components/character/CharacterFamily'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { characterZh } from '@/i18n/translations'
 
 const oliver = characters.find((c) => c.id === 'oliver')!
 
@@ -24,6 +26,13 @@ const oliverFacts = [
 ]
 
 export default function OliverCharacterPage() {
+  const { lang } = useLanguage()
+  const zh = characterZh.oliver
+
+  const catchphrase = lang === 'zh' ? zh.catchphrase : "Hey there guys, I'm Oliver."
+  const tagline = lang === 'zh' ? zh.heroBannerTagline : "New to the Rabbitohs family — but heart and soul in the Burrow!"
+  const facts = lang === 'zh' ? zh.facts : oliverFacts
+
   return (
     <>
       <SkipLink />
@@ -32,8 +41,8 @@ export default function OliverCharacterPage() {
         {/* Park hero scene */}
         <ParkHero
           characterName={oliver.firstName}
-          catchphrase="Hey there guys, I'm Oliver."
-          tagline="New to the Rabbitohs family — but heart and soul in the Burrow!"
+          catchphrase={catchphrase}
+          tagline={tagline}
           imageSrc="/characters/oliver-header.png"
           imageAlt="Oliver standing warmly in his South Sydney Rabbitohs kit"
           accentColor={oliver.accentColor}
@@ -45,7 +54,7 @@ export default function OliverCharacterPage() {
 
         {/* Clipboard Quick Facts */}
         <ClipboardFacts
-          facts={oliverFacts}
+          facts={facts}
           characterName={oliver.firstName}
           sectionBg="#D1BABA"
           headingColor="#382B2A"
@@ -54,7 +63,7 @@ export default function OliverCharacterPage() {
         />
 
         {/* Best Moments */}
-        <BestMomentsSection moments={oliver.bestMoments} characterName={oliver.firstName} />
+        <BestMomentsSection moments={oliver.bestMoments} characterName={oliver.firstName} characterId={oliver.id} />
 
         {/* Activities */}
         <CharacterActivities characterId={oliver.id} characterName={oliver.firstName} />

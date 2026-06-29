@@ -3,6 +3,8 @@ import type { Character } from '@/data/characters'
 import { characters } from '@/data/characters'
 import SectionHeading from '@/components/shared/SectionHeading'
 import CharacterCard from '@/components/shared/CharacterCard'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { ui } from '@/i18n/translations'
 
 interface CharacterFamilyProps {
   relatedCharacterIds: string[]
@@ -14,6 +16,17 @@ export default function CharacterFamily({ relatedCharacterIds, currentCharacterN
     .map((id) => characters.find((c) => c.id === id))
     .filter((c): c is Character => c !== undefined)
 
+  const { lang } = useLanguage()
+  const t = ui[lang].character
+
+  const heading = lang === 'zh'
+    ? `${currentCharacterName}${t.familyHeadingSuffix}`
+    : `${currentCharacterName}${t.familyHeadingSuffix}`
+
+  const subtitle = lang === 'zh'
+    ? `${t.familySubtitlePrefix}${currentCharacterName}${t.familySubtitleSuffix}`
+    : `${t.familySubtitlePrefix} ${currentCharacterName}${t.familySubtitleSuffix}`
+
   return (
     <section
       aria-labelledby="family-heading"
@@ -24,10 +37,10 @@ export default function CharacterFamily({ relatedCharacterIds, currentCharacterN
         <SectionHeading
           id="family-heading"
           color="red"
-          subtitle={`Meet the rest of ${currentCharacterName}'s family.`}
+          subtitle={subtitle}
           className="mb-10"
         >
-          {currentCharacterName}'s Family
+          {heading}
         </SectionHeading>
 
         <motion.div

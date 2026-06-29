@@ -8,6 +8,8 @@ import ClipboardFacts from '@/components/character/ClipboardFacts'
 import BestMomentsSection from '@/components/character/BestMomentsSection'
 import CharacterActivities from '@/components/character/CharacterActivities'
 import CharacterFamily from '@/components/character/CharacterFamily'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { characterZh } from '@/i18n/translations'
 
 const scarlett = characters.find((c) => c.id === 'scarlett')!
 
@@ -24,6 +26,13 @@ const scarlettFacts = [
 ]
 
 export default function ScarlettCharacterPage() {
+  const { lang } = useLanguage()
+  const zh = characterZh.scarlett
+
+  const catchphrase = lang === 'zh' ? zh.catchphrase : "Hi, I'm Scarlett — but you can call me Scar."
+  const tagline = lang === 'zh' ? zh.heroBannerTagline : "Fastest in the family, loudest in the stand — Reggie's daughter through and through!"
+  const facts = lang === 'zh' ? zh.facts : scarlettFacts
+
   return (
     <>
       <SkipLink />
@@ -32,8 +41,8 @@ export default function ScarlettCharacterPage() {
         {/* Park hero scene */}
         <ParkHero
           characterName={scarlett.firstName}
-          catchphrase="Hi, I'm Scarlett — but you can call me Scar."
-          tagline="Fastest in the family, loudest in the stand — Reggie's daughter through and through!"
+          catchphrase={catchphrase}
+          tagline={tagline}
           imageSrc="/characters/scarlett-header.png"
           imageAlt="Scarlett standing proudly in her South Sydney Rabbitohs kit"
           accentColor={scarlett.accentColor}
@@ -45,7 +54,7 @@ export default function ScarlettCharacterPage() {
 
         {/* Clipboard Quick Facts */}
         <ClipboardFacts
-          facts={scarlettFacts}
+          facts={facts}
           characterName={scarlett.firstName}
           sectionBg="#ECC485"
           headingColor="#BC0800"
@@ -54,7 +63,7 @@ export default function ScarlettCharacterPage() {
         />
 
         {/* Best Moments */}
-        <BestMomentsSection moments={scarlett.bestMoments} characterName={scarlett.firstName} />
+        <BestMomentsSection moments={scarlett.bestMoments} characterName={scarlett.firstName} characterId={scarlett.id} />
 
         {/* Activities */}
         <CharacterActivities characterId={scarlett.id} characterName={scarlett.firstName} />

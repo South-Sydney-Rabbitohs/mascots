@@ -8,6 +8,8 @@ import ClipboardFacts from '@/components/character/ClipboardFacts'
 import BestMomentsSection from '@/components/character/BestMomentsSection'
 import CharacterActivities from '@/components/character/CharacterActivities'
 import CharacterFamily from '@/components/character/CharacterFamily'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { characterZh } from '@/i18n/translations'
 
 const reggie = characters.find((c) => c.id === 'reggie')!
 
@@ -23,6 +25,13 @@ const reggieFacts = [
 ]
 
 export default function ReggieCharacterPage() {
+  const { lang } = useLanguage()
+  const zh = characterZh.reggie
+
+  const catchphrase = lang === 'zh' ? zh.catchphrase : "G'day, I'm Reggie."
+  const tagline = lang === 'zh' ? zh.heroBannerTagline : "The original Burrow Bunny. Head Cheerleader, Chief Hugger & Grandfather-in-Chief of the Rabbitohs!"
+  const facts = lang === 'zh' ? zh.facts : reggieFacts
+
   return (
     <>
       <SkipLink />
@@ -31,8 +40,8 @@ export default function ReggieCharacterPage() {
         {/* Park hero scene */}
         <ParkHero
           characterName={reggie.firstName}
-          catchphrase="G'day, I'm Reggie."
-          tagline="The original Burrow Bunny. Head Cheerleader, Chief Hugger & Grandfather-in-Chief of the Rabbitohs!"
+          catchphrase={catchphrase}
+          tagline={tagline}
           imageSrc="/characters/reggie-header.png"
           imageAlt="Reggie standing proudly in his South Sydney Rabbitohs kit"
           accentColor={reggie.accentColor}
@@ -44,7 +53,7 @@ export default function ReggieCharacterPage() {
 
         {/* Clipboard Quick Facts */}
         <ClipboardFacts
-          facts={reggieFacts}
+          facts={facts}
           characterName={reggie.firstName}
           sectionBg="#BC0800"
           headingColor="#ffffff"
@@ -53,7 +62,7 @@ export default function ReggieCharacterPage() {
         />
 
         {/* Best Moments */}
-        <BestMomentsSection moments={reggie.bestMoments} characterName={reggie.firstName} />
+        <BestMomentsSection moments={reggie.bestMoments} characterName={reggie.firstName} characterId={reggie.id} />
 
         {/* Activities */}
         <CharacterActivities characterId={reggie.id} characterName={reggie.firstName} />

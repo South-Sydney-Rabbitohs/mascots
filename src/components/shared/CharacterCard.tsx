@@ -1,6 +1,8 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import type { Character } from '@/data/characters'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { ui, characterZh } from '@/i18n/translations'
 
 interface CharacterCardProps {
   character: Character
@@ -11,6 +13,10 @@ interface CharacterCardProps {
 
 export default function CharacterCard({ character, variant = 'home', index = 0, compact = false }: CharacterCardProps) {
   const shouldReduceMotion = useReducedMotion()
+  const { lang } = useLanguage()
+  const t = ui[lang].character
+  const zh = characterZh[character.id]
+  const tagline = lang === 'zh' && zh ? zh.tagline : character.tagline
 
   const cardVariants = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
@@ -51,15 +57,15 @@ export default function CharacterCard({ character, variant = 'home', index = 0, 
             </h3>
           )}
           <p className="font-['Nunito',sans-serif] text-white/80 text-xs leading-relaxed mb-3 line-clamp-1">
-            {character.tagline}
+            {tagline}
           </p>
           {character.available ? (
             <span className="font-['Baloo_2',cursive] font-bold text-white text-xs uppercase tracking-wider">
-              Meet {character.firstName} →
+              {t.meetButton} {character.firstName} →
             </span>
           ) : (
             <span className="font-['Baloo_2',cursive] font-bold text-white/60 text-xs uppercase tracking-wider">
-              Coming Soon
+              {t.comingSoon}
             </span>
           )}
         </div>
@@ -68,7 +74,7 @@ export default function CharacterCard({ character, variant = 'home', index = 0, 
         {!character.available && (
           <div className="absolute inset-0 top-[90px] rounded-3xl bg-black/20 flex items-center justify-center">
             <span className="bg-[#FFD54F] text-[#C8102E] font-['Baloo_2',cursive] font-bold text-sm px-3 py-1 rounded-full">
-              Coming Soon!
+              {t.comingSoonBadge}
             </span>
           </div>
         )}
@@ -86,18 +92,18 @@ export default function CharacterCard({ character, variant = 'home', index = 0, 
           <Link
             to={`/characters/${character.slug}`}
             className="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#007A3D] rounded-3xl transition-transform duration-200 hover:scale-[1.04]"
-            aria-label={`Meet ${character.firstName}`}
+            aria-label={`${t.meetButton} ${character.firstName}`}
           >
             {inner}
           </Link>
         ) : (
-          <div aria-label={`${character.firstName} — coming soon`}>{inner}</div>
+          <div aria-label={`${character.firstName} — ${t.comingSoon}`}>{inner}</div>
         )}
       </motion.div>
     )
   }
 
-  // Family variant — compact horizontal / grid card (unchanged style)
+  // Family variant
   const cardContent = (
     <div className="relative rounded-3xl overflow-hidden bg-white shadow-md group hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
       <div
@@ -120,11 +126,11 @@ export default function CharacterCard({ character, variant = 'home', index = 0, 
           {character.firstName}
         </h3>
         <p className="text-sm text-[#1A1A1A]/70 font-['Nunito',sans-serif] mt-1 line-clamp-2">
-          {character.tagline}
+          {tagline}
         </p>
         {character.available && (
           <p className="mt-2 text-xs font-bold text-[#1788DF] font-['Baloo_2',cursive] uppercase tracking-wide">
-            Learn More →
+            {lang === 'zh' ? '了解更多 →' : 'Learn More →'}
           </p>
         )}
       </div>
@@ -142,12 +148,12 @@ export default function CharacterCard({ character, variant = 'home', index = 0, 
         <Link
           to={`/characters/${character.slug}`}
           className="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#007A3D] rounded-3xl"
-          aria-label={`Meet ${character.firstName}`}
+          aria-label={`${t.meetButton} ${character.firstName}`}
         >
           {cardContent}
         </Link>
       ) : (
-        <div aria-label={`${character.firstName} — coming soon`}>{cardContent}</div>
+        <div aria-label={`${character.firstName} — ${t.comingSoon}`}>{cardContent}</div>
       )}
     </motion.div>
   )

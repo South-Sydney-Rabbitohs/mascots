@@ -1,12 +1,31 @@
 import type { Moment } from '@/data/characters'
 import SectionHeading from '@/components/shared/SectionHeading'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { ui, characterZh } from '@/i18n/translations'
 
 interface BestMomentsSectionProps {
   moments: Moment[]
   characterName: string
+  characterId: string
 }
 
-export default function BestMomentsSection({ moments, characterName }: BestMomentsSectionProps) {
+export default function BestMomentsSection({ moments, characterName, characterId }: BestMomentsSectionProps) {
+  const { lang } = useLanguage()
+  const t = ui[lang].character
+  const zh = characterZh[characterId]
+
+  const localizedMoments = lang === 'zh' && zh
+    ? moments.map((m, i) => ({ ...m, ...(zh.bestMoments[i] ?? {}) }))
+    : moments
+
+  const heading = lang === 'zh'
+    ? `${characterName}${t.bestMomentsHeadingSuffix}`
+    : `${characterName}${t.bestMomentsHeadingSuffix}`
+
+  const subtitle = lang === 'zh'
+    ? `${characterName}${t.bestMomentsSubtitle1}${characterName}${t.bestMomentsSubtitle2}`
+    : `${characterName}${t.bestMomentsSubtitle1} ${characterName}${t.bestMomentsSubtitle2}`
+
   return (
     <section
       aria-labelledby="moments-heading"
@@ -16,14 +35,14 @@ export default function BestMomentsSection({ moments, characterName }: BestMomen
         <SectionHeading
           id="moments-heading"
           color="purple"
-          subtitle={`${characterName}'s most legendary moments — as told by ${characterName}!`}
+          subtitle={subtitle}
           className="mb-10"
         >
-          {characterName}'s Best Moments
+          {heading}
         </SectionHeading>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {moments.map((moment) => (
+          {localizedMoments.map((moment) => (
             <div
               key={moment.id}
               className="bg-[#FFF7D7] rounded-3xl overflow-hidden shadow-sm border-t-4 border-[#C8102E]"

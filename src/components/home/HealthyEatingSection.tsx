@@ -1,32 +1,20 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { ui } from '@/i18n/translations'
 
 // TODO: Jetpack CMS integration — fetch recipe content dynamically
 
-const recipes = [
-  {
-    emoji: '🧁',
-    title: 'Anytime Muffins',
-    description: 'High protein, packed with veg — perfect for breaky, lunchboxes or after-school snacks.',
-    href: '/healthy-living/anytime-muffins',
-    accentColor: '#C8102E',
-  },
-  {
-    emoji: '🍫',
-    title: 'Choc Snack Balls',
-    description: 'A guilt-free chocolatey treat made with dates, coconut and cacao. No baking needed!',
-    href: '/healthy-living/choc-snack-balls',
-    accentColor: '#007A3D',
-  },
-  {
-    emoji: '🌾',
-    title: 'No-Bake Oat Bars',
-    description: 'Mix, press, drizzle and chill. These chewy oat bars with dark chocolate are a winner.',
-    href: '/healthy-living/no-bake-oat-bars',
-    accentColor: '#007A3D',
-  },
+const recipeHrefs = [
+  { href: '/healthy-living/anytime-muffins', emoji: '🧁', accentColor: '#C8102E' },
+  { href: '/healthy-living/choc-snack-balls', emoji: '🍫', accentColor: '#007A3D' },
+  { href: '/healthy-living/no-bake-oat-bars', emoji: '🌾', accentColor: '#007A3D' },
 ]
 
 export default function HealthyEatingSection() {
+  const { lang } = useLanguage()
+  const t = ui[lang].home
+  const recipes = ui[lang].recipes
+
   return (
     <section
       id="healthy-living"
@@ -41,24 +29,25 @@ export default function HealthyEatingSection() {
             id="healthy-heading"
             className="font-['Baloo_2',cursive] font-extrabold text-4xl md:text-5xl text-[#0D4F2A] mb-3"
           >
-            Healthy Recipes
+            {t.healthyRecipesHeading}
           </h2>
           <p className="font-['Nunito',sans-serif] text-[#0D4F2A]/80 text-base md:text-lg max-w-xl mx-auto">
-            Try these easy, nutritious recipes the whole family will love!
+            {t.healthyRecipesSubtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {recipes.map((recipe) => (
+          {recipes.map((recipe, i) => (
             <Link
-              key={recipe.title}
-              to={recipe.href}
+              key={recipeHrefs[i].href}
+              to={recipeHrefs[i].href}
               className="group bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-shadow duration-200 flex flex-col focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#007A3D]"
-              aria-label={`View recipe: ${recipe.title}`}
+              aria-label={`${t.getRecipe}: ${recipe.title}`}
             >
+              <div className="text-3xl mb-3" aria-hidden="true">{recipeHrefs[i].emoji}</div>
               <h3
                 className="font-['Baloo_2',cursive] font-bold text-xl mb-2"
-                style={{ color: recipe.accentColor }}
+                style={{ color: recipeHrefs[i].accentColor }}
               >
                 {recipe.title}
               </h3>
@@ -67,10 +56,10 @@ export default function HealthyEatingSection() {
               </p>
               <span
                 className="mt-4 inline-flex items-center gap-1 font-['Baloo_2',cursive] font-bold text-sm group-hover:underline"
-                style={{ color: recipe.accentColor }}
+                style={{ color: recipeHrefs[i].accentColor }}
                 aria-hidden="true"
               >
-                Get Recipe <span>→</span>
+                {t.getRecipe} <span>→</span>
               </span>
             </Link>
           ))}

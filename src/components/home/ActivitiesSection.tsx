@@ -1,9 +1,13 @@
 // TODO: GA4 activity_click event on each CTA
 import { getFeaturedActivities } from '@/data/activities'
 import ActivityCard from '@/components/shared/ActivityCard'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { ui } from '@/i18n/translations'
 
 export default function ActivitiesSection() {
   const featured = getFeaturedActivities()
+  const { lang } = useLanguage()
+  const t = ui[lang].home
 
   return (
     <section
@@ -18,10 +22,10 @@ export default function ActivitiesSection() {
             id="activities-heading"
             className="font-['Baloo_2',cursive] font-extrabold text-4xl md:text-5xl text-[#0D4F2A] mb-2"
           >
-            Activities
+            {t.activitiesHeading}
           </h2>
           <p className="font-['Nunito',sans-serif] text-[#0D4F2A]/80 text-base md:text-lg">
-            Puzzles, colouring, quizzes and more — all free, all fun!
+            {t.activitiesSubtitle}
           </p>
         </div>
 
